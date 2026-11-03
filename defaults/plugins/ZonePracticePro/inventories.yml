@@ -1,0 +1,296 @@
+VERSION: 7
+
+#
+# Spawn inventories
+# Set the slot to -1 if you don't want to display the item.
+#
+LOBBY-BASIC:
+  NORMAL:
+    QUEUE:
+      SLOT: 0
+      ITEM:
+        NAME: <gold>Play <gray>(Right-Click)
+        MATERIAL: BOOK
+        LORE:
+        - ''
+        - <gray>Open the queue and pick a ladder.
+        - <gray>Switch between <yellow>Unranked <gray>and <red>Ranked
+        - <gray>at the bottom of the menu.
+    UNRANKED:
+      SLOT: 0
+      ITEM:
+        NAME: <yellow>Unranked Queue <gray>(Right-Click)
+        MATERIAL: WOODEN_SWORD
+        DURABILITY: 100
+    RANKED:
+      SLOT: 1
+      ITEM:
+        NAME: <red>Ranked Queue <gray>(Right-Click)
+        MATERIAL: IRON_SWORD
+    COSMETICS:
+      SLOT: 4
+      ITEM:
+        NAME: <light_purple>Cosmetics Hub <gray>(Right-Click)
+        MATERIAL: NETHER_STAR
+        LORE:
+        - ''
+        - <gray>Customize your style with
+        - <white>Armor Trims<gray>, <white>Shield Layouts<gray>,
+        - and <white>Death Effects<gray>.
+        - ''
+        - <yellow>Open the cosmetics menu.
+        ENCHANTMENTS:
+        - DURABILITY:1
+        FLAGS:
+        - HIDE_ENCHANTS
+    ENABLE-SPECTATE-MODE:
+      SLOT: -1
+      ITEM:
+        NAME: <green>Enable <yellow>Spectate Mode <gray>(Right-Click)
+        MATERIAL: REDSTONE_TORCH
+    PARTY-CREATE:
+      SLOT: 7
+      ITEM:
+        NAME: <light_purple>Create Party <gray>(Right-Click)
+        MATERIAL: NAME_TAG
+    PARTY-JOIN:
+      SLOT: 6
+      ITEM:
+        NAME: <green>Join Party <gray>(Right-Click)
+        MATERIAL: LIME_DYE
+        LORE:
+        - ''
+        - <gray>Join a <green>public party <gray>without
+        - <gray>asking for an invite.
+        - ''
+        - <yellow>Open the public party list.
+    SETTINGS:
+      SLOT: -1
+      ITEM:
+        NAME: <green>Settings <gray>(Right-Click)
+        MATERIAL: CLOCK
+        AMOUNT: 1
+        ENCHANTMENTS:
+        - DURABILITY:1
+      FLAGS:
+      - HIDE_POTION_EFFECTS
+    KIT-EDITOR:
+      SLOT: 8
+      ITEM:
+        NAME: <gold>Kit Editor <gray>(Right-Click)
+        MATERIAL: WRITABLE_BOOK
+    SETUP:
+      SLOT: -1
+      ITEM:
+        NAME: <red>Manage Server <gray>(Right-Click)
+        MATERIAL: REDSTONE
+    STAFF-MODE:
+      SLOT: -1
+      ITEM:
+        NAME: <green>Enable <light_purple>Staff Mode <gray>(Right-Click)
+        MATERIAL: PINK_DYE
+    REMATCH:
+      SLOT: 4
+      # true = the rematch item becomes the opponent's player head (MATERIAL is then ignored).
+      # NAME and LORE support %opponent% (opponent's name) and %opponent_head% (their head shown inside the text).
+      OPPONENT-HEAD: false
+      ITEM:
+        NAME: <gold>Rematch <yellow>%opponent% <gray>(Right-Click)
+        MATERIAL: BLAZE_POWDER
+    STATISTICS:
+      SLOT: 2
+      ITEM:
+        NAME: <dark_green>Statistics <gray>(Right-Click)
+        MATERIAL: EMERALD
+  EXTRA:
+    FFA:
+      COMMAND: ffa
+      SLOT: 1
+      ITEM:
+        NAME: <aqua>FFA <gray>(Right-Click)
+        MATERIAL: GOLDEN_AXE
+# HERE YOU CAN PUT THE EXTRA ITEMS LIKE THIS:
+#STUFF-ITEM:
+#  COMMAND: unranked # Don't write the / character before the command.
+#  SLOT: 2
+#  ITEM:
+#    NAME: "<red>Stuff Item"
+#    MATERIAL: DIRT
+#    DAMAGE: 0
+#    LORE:
+#      - ""
+#      - "<light_purple>Lore"
+#
+# Party inventory items
+#
+PARTY:
+  NORMAL:
+    HOST-PARTY-GAME:
+      SLOT: 0
+      ITEM:
+        NAME: <yellow>Host Party Event <gray>(Right-Click)
+        MATERIAL: GOLDEN_AXE
+    PARTY-INFO:
+      SLOT: 1
+      ITEM:
+        NAME: <aqua>Party Information <gray>(Right-Click)
+        MATERIAL: NETHER_STAR
+    OTHER-PARTIES:
+      SLOT: 2
+      ITEM:
+        NAME: <green>Other Parties <gray>(Right-Click)
+        MATERIAL: PLAYER_HEAD
+    LEAVE-PARTY:
+      SLOT: 8
+      ITEM:
+        NAME: <red>Leave Party <gray>(Right-Click)
+        MATERIAL: RED_DYE
+    PARTY-SETTINGS:
+      SLOT: 4
+      ITEM:
+        NAME: <gold>Party Settings <gray>(Right-Click)
+        MATERIAL: CLOCK
+    PARTY-KIT-EDITOR:
+      SLOT: 7
+      ITEM:
+        NAME: <gold>Kit Editor <gray>(Right-Click)
+        MATERIAL: BOOK
+  EXTRA: null
+# EXTRA ITEMS LIKE UPPER
+#
+# Queue items
+#
+QUEUE:
+  MATCH:
+    NORMAL:
+      LEAVE-MATCH-QUEUE:
+        SLOT: 4
+        ITEM:
+          NAME: <red>Leave Queue <gray>(Right-Click)
+          MATERIAL: RED_DYE
+    EXTRA: null
+  # EXTRA ITEMS LIKE UPPER
+  EVENT:
+    NORMAL:
+      LEAVE-EVENT-QUEUE:
+        SLOT: 4
+        ITEM:
+          NAME: <red>Leave <yellow>%event% <red>Event Queue <gray>(Right-Click)
+          MATERIAL: RED_DYE
+    EXTRA: null
+# EXTRA ITEMS LIKE UPPER
+#
+# Spectator items
+#
+SPECTATOR:
+  LOBBY:
+    NORMAL:
+      MENU:
+        SLOT: 5
+        ITEM:
+          NAME: <aqua>Spectate Menu <gray>(Right-Click)
+          MATERIAL: PAPER
+      DISABLE:
+        SLOT: 4
+        ITEM:
+          NAME: <red>Disable <yellow>Spectate Mode <gray>(Right-Click)
+          MATERIAL: REDSTONE_TORCH
+      RANDOM:
+        SLOT: 3
+        ITEM:
+          NAME: <green>Spectate Random Match <gray>(Right-Click)
+          MATERIAL: COMPASS
+    EXTRA: null
+  # EXTRA ITEMS LIKE UPPER
+  MATCH:
+    NORMAL:
+      MENU:
+        SLOT: 5
+        ITEM:
+          NAME: <aqua>Spectate Menu <gray>(Right-Click)
+          MATERIAL: PAPER
+      RANDOM:
+        SLOT: 4
+        ITEM:
+          NAME: <light_purple>Spectate Random Match <gray>(Right-Click)
+          MATERIAL: COMPASS
+      TARGETS:
+        SLOT: 3
+        ITEM:
+          NAME: <yellow>Fighters <gray>(Right-Click)
+          MATERIAL: ENDER_EYE
+      SHOW-SPECTATORS:
+        SLOT: 0
+        ITEM:
+          NAME: <yellow>Show Spectators <gray>(Right-Click)
+          MATERIAL: GRAY_DYE
+      HIDE-SPECTATORS:
+        SLOT: 0
+        ITEM:
+          NAME: <yellow>Hide Spectators <gray>(Right-Click)
+          MATERIAL: LIME_DYE
+      LEAVE:
+        SLOT: 8
+        ITEM:
+          NAME: <red>Stop Spectating <gray>(Right-Click)
+          MATERIAL: RED_DYE
+    ELIMINATED-TARGETS: # Players eliminated from a party match that keeps going get the Fighters item (NORMAL.TARGETS.ITEM) to teleport to living fighters.
+      ENABLED: true
+      SLOT: 4
+    EXTRA: null
+  # EXTRA ITEMS LIKE UPPER
+  EVENT:
+    NORMAL:
+      LEAVE:
+        SLOT: 8
+        ITEM:
+          NAME: <red>Stop Spectating <gray>(Right-Click)
+          MATERIAL: RED_DYE
+    EXTRA: null
+  # EXTRA ITEMS LIKE UPPER
+  FFA:
+    NORMAL:
+      LEAVE:
+        SLOT: 8
+        ITEM:
+          NAME: <red>Stop Spectating <gray>(Right-Click)
+          MATERIAL: RED_DYE
+    EXTRA: null
+# EXTRA ITEMS LIKE UPPER
+#
+# Staff Mode items
+#
+STAFF-MODE:
+  NORMAL:
+    RANDOM-GAME-SPECTATE:
+      SLOT: 0
+      ITEM:
+        NAME: <light_purple>Spectate Random Match <gray>(Right-Click)
+        MATERIAL: COMPASS
+    PLAYER-INVENTORY:
+      SLOT: 1
+      ITEM:
+        NAME: <gold>View Player's Inventory <gray>(Right-Click)
+        MATERIAL: STICK
+    HIDE-FROM-PLAYERS-ON:
+      SLOT: 8
+      ITEM:
+        NAME: <yellow>Show Myself To Players <gray>(Right-Click)
+        MATERIAL: GRAY_DYE
+    HIDE-FROM-PLAYERS-OFF:
+      SLOT: 8
+      ITEM:
+        NAME: <yellow>Hide Myself From Players <gray>(Right-Click)
+        MATERIAL: LIME_DYE
+    TURN-OFF:
+      SLOT: 4
+      ITEM:
+        NAME: <red>Turn Off StaffMode <gray>(Right-Click)
+        MATERIAL: RED_DYE
+    LEAVE-SPECTATE:
+      SLOT: 7
+      ITEM:
+        NAME: <red>Leave Spectation <gray>(Right-Click)
+        MATERIAL: RED_DYE
+  EXTRA: null
+# EXTRA ITEMS LIKE UPPER
