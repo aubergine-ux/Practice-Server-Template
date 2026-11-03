@@ -1,0 +1,186 @@
+npcs:
+  7f6819bc-f4e2-44d8-bfb4-ee26d27b988c:
+    name: unranked
+    creator: 00000000-0000-0000-0000-000000000000
+    displayName: <yellow><bold>Unranked</bold>
+    type: PLAYER
+    location:
+      world: world
+      x: -3.5
+      y: 65.0
+      z: -18.5
+      yaw: 0.0
+      pitch: 0.0
+    showInTab: false
+    spawnEntity: true
+    collidable: true
+    glowing: false
+    glowingColor: white
+    turnToPlayer: true
+    turnToPlayerDistance: 10
+    interactionCooldown: 1.0
+    scale: 1.0
+    visibility_distance: -1
+    visibility: ALL
+    skin:
+      mirrorSkin: true
+    equipment:
+      MAINHAND:
+        ==: org.bukkit.inventory.ItemStack
+        DataVersion: 5023
+        id: minecraft:iron_sword
+        count: 1
+        schema_version: 1
+    actions:
+      ANY_CLICK:
+        '1':
+          action: player_command
+          value: unranked
+  59378af4-c4b3-4574-b7b3-2dab3518ac47:
+    name: ranked
+    creator: 00000000-0000-0000-0000-000000000000
+    displayName: <red><bold>Ranked</bold>
+    type: PLAYER
+    location:
+      world: world
+      x: 0.5
+      y: 65.0
+      z: -18.5
+      yaw: 0.0
+      pitch: 0.0
+    showInTab: false
+    spawnEntity: true
+    collidable: true
+    glowing: false
+    glowingColor: white
+    turnToPlayer: true
+    turnToPlayerDistance: 10
+    interactionCooldown: 1.0
+    scale: 1.0
+    visibility_distance: -1
+    visibility: ALL
+    skin:
+      mirrorSkin: true
+    equipment:
+      MAINHAND:
+        ==: org.bukkit.inventory.ItemStack
+        DataVersion: 5023
+        id: minecraft:diamond_sword
+        count: 1
+        schema_version: 1
+    actions:
+      ANY_CLICK:
+        '1':
+          action: player_command
+          value: ranked
+  ea97dc66-3c3f-4a75-b90c-610b8930d6f7:
+    name: ffa
+    creator: 00000000-0000-0000-0000-000000000000
+    displayName: <aqua><bold>FFA</bold>
+    type: PLAYER
+    location:
+      world: world
+      x: 4.5
+      y: 65.0
+      z: -18.5
+      yaw: 0.0
+      pitch: 0.0
+    showInTab: false
+    spawnEntity: true
+    collidable: true
+    glowing: false
+    glowingColor: white
+    turnToPlayer: true
+    turnToPlayerDistance: 10
+    interactionCooldown: 1.0
+    scale: 1.0
+    visibility_distance: -1
+    visibility: ALL
+    skin:
+      mirrorSkin: true
+    equipment:
+      MAINHAND:
+        ==: org.bukkit.inventory.ItemStack
+        DataVersion: 5023
+        id: minecraft:golden_axe
+        count: 1
+        schema_version: 1
+    actions:
+      ANY_CLICK:
+        '1':
+          action: player_command
+          value: ffa
+  09f3bcab-d56b-4cb4-9492-447b00e5ebda:
+    name: statistics
+    creator: 00000000-0000-0000-0000-000000000000
+    displayName: <green><bold>Statistics</bold>
+    type: PLAYER
+    location:
+      world: world
+      x: -7.5
+      y: 65.0
+      z: -18.5
+      yaw: 0.0
+      pitch: 0.0
+    showInTab: false
+    spawnEntity: true
+    collidable: true
+    glowing: false
+    glowingColor: white
+    turnToPlayer: true
+    turnToPlayerDistance: 10
+    interactionCooldown: 1.0
+    scale: 1.0
+    visibility_distance: -1
+    visibility: ALL
+    skin:
+      mirrorSkin: true
+    equipment:
+      MAINHAND:
+        ==: org.bukkit.inventory.ItemStack
+        DataVersion: 5023
+        id: minecraft:emerald
+        count: 1
+        schema_version: 1
+    actions:
+      ANY_CLICK:
+        '1':
+          action: player_command
+          value: statistics
+  2e439134-8a8a-4648-a046-2201d62c58cd:
+    name: editor
+    creator: 00000000-0000-0000-0000-000000000000
+    displayName: <gold><bold>Kit Editor</bold>
+    type: PLAYER
+    location:
+      world: world
+      x: 8.5
+      y: 65.0
+      z: -18.5
+      yaw: 0.0
+      pitch: 0.0
+    showInTab: false
+    spawnEntity: true
+    collidable: true
+    glowing: false
+    glowingColor: white
+    turnToPlayer: true
+    turnToPlayerDistance: 10
+    interactionCooldown: 1.0
+    scale: 1.0
+    visibility_distance: -1
+    visibility: ALL
+    skin:
+      mirrorSkin: true
+    equipment:
+      MAINHAND:
+        ==: org.bukkit.inventory.ItemStack
+        DataVersion: 5023
+        id: minecraft:writable_book
+        count: 1
+        schema_version: 1
+    actions:
+      ANY_CLICK:
+        '1':
+          action: player_command
+          value: editor
