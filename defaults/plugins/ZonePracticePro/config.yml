@@ -97,21 +97,14 @@ QUEUE:
           SELECTED-ICON-MATERIAL: NETHERITE_SWORD
           ICON-DISABLED: false
           LADDERS:
-          - SPEARMACE
-          - MACE
-          - SPEARELYTRA
+          - DIAMONDPOTION
           - SWORD
-          - CRYSTAL
-          - BOXING
-          - BUILDUHC
-          - AXE
           - GAPPLE
-          - SG
           - ARCHER
           - SOUP
-          - CART
+          - AXE
+          - BOXING
           - NETHERITEPOTION
-          - DIAMONDPOTION
         MINIGAMES:
           DISPLAY-NAME: MINIGAMES
           ICON-MATERIAL: SLIME_BALL
@@ -119,16 +112,6 @@ QUEUE:
           ICON-DISABLED: false
           LADDERS:
           - SUMO
-          - TNTSUMO
-          - SPLEEF
-          - FIREBALL
-          - PEARLFIGHT
-          - MLGRUSH
-          - BRIDGES
-          - BATTLERUSH
-          - CREEPER
-          - BEDWARS
-          - SKYWARS
   RANKED:
     CUSTOM-KIT:
       ENTRY-ENABLED: false # If true, ranked selector also shows the custom-kit queue entry.
@@ -184,21 +167,14 @@ QUEUE:
           SELECTED-ICON-MATERIAL: NETHERITE_SWORD
           ICON-DISABLED: false
           LADDERS:
-          - SPEARMACE
-          - MACE
-          - SPEARELYTRA
+          - DIAMONDPOTION
           - SWORD
-          - CRYSTAL
-          - BOXING
-          - BUILDUHC
-          - AXE
           - GAPPLE
-          - SG
           - ARCHER
           - SOUP
-          - CART
+          - AXE
+          - BOXING
           - NETHERITEPOTION
-          - DIAMONDPOTION
         MINIGAMES:
           DISPLAY-NAME: MINIGAMES
           ICON-MATERIAL: SLIME_BALL
@@ -206,16 +182,6 @@ QUEUE:
           ICON-DISABLED: false
           LADDERS:
           - SUMO
-          - TNTSUMO
-          - SPLEEF
-          - FIREBALL
-          - PEARLFIGHT
-          - MLGRUSH
-          - BRIDGES
-          - BATTLERUSH
-          - CREEPER
-          - BEDWARS
-          - SKYWARS
 #
 # Admin settings
 ADMIN-SETTINGS:
