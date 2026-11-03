@@ -1,0 +1,7 @@
+{
+  "pack": {
+    "description": "Duels template: first-boot world setup",
+    "min_format": 121,
+    "max_format": 999
+  }
+}

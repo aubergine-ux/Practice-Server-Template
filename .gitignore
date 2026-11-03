@@ -1,0 +1,8 @@
+# everything the server generates or downloads lives here
+/server/
+
+*.part
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

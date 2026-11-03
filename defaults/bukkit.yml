@@ -1,0 +1,6 @@
+# Bukkit adds the rest of its defaults to this file on first start.
+settings:
+  allow-end: false
+worlds:
+  world:
+    generator: VoidGen:{"biome":"plains"}

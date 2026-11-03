@@ -1,0 +1,24 @@
+# What gets installed. After editing, run: ./scripts/update-lock.sh
+#
+#   paper    <minecraft-version> [build]       blank build = latest stable
+#   modrinth <project-slug>      [version]     blank version = latest release for that Minecraft version
+#
+# Slugs are the last part of a Modrinth URL, e.g. modrinth.com/plugin/<slug>
+
+paper    26.3
+
+# Core duels plugin (kits, arenas, queues, ELO, party duels, spectating)
+modrinth duels-optimised
+
+# Lets 1.20+ clients join a 26.x server
+modrinth viaversion
+modrinth viabackwards
+
+# Admin / building
+modrinth luckperms
+modrinth placeholderapi
+modrinth worldedit
+modrinth worldguard
+
+# Void world for lobby + arenas
+modrinth voidgen
