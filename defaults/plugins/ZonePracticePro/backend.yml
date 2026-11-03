@@ -5,3 +5,40 @@ lobby:
   z: 0.5
   yaw: -180.0
   pitch: 0.0
+holograms:
+  global:
+    enabled: true
+    type: GLOBAL
+    lb-type: ELO
+    showStat: 10
+    location:
+      ==: org.bukkit.Location
+      world_key: minecraft:overworld
+      x: -16.5
+      y: 65.5
+      z: 0.5
+      pitch: 0.0
+      yaw: 90.0
+  ladders:
+    enabled: true
+    type: LADDER_DYNAMIC
+    lb-type: ELO
+    showStat: 10
+    location:
+      ==: org.bukkit.Location
+      world_key: minecraft:overworld
+      x: 17.5
+      y: 65.5
+      z: 0.5
+      pitch: 0.0
+      yaw: -90.0
+    ladders:
+    - Archer
+    - Axe
+    - Boxing
+    - DiamondPotion
+    - Gapple
+    - NetheritePotion
+    - Soup
+    - Sumo
+    - Sword
