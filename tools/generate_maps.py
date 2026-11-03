@@ -412,6 +412,7 @@ def main():
         f"function practice:maps/{builds[0].name}/start",
     ])
     write(FUNC / "first_boot/finish.mcfunction", [
+        "execute if score #done practice.setup matches 1 run return fail",
         "setworldspawn 0 64 0 180 0",
         "scoreboard players set #done practice.setup 1",
         "say [practice] lobby and arenas are built",
@@ -427,6 +428,7 @@ def main():
         ])
         # the arenas world only exists once ZonePractice has started, so keep retrying until it does
         write(FUNC / f"maps/{b.name}/wait.mcfunction", [
+            f"execute if score #{b.name} practice.setup matches 1 run return fail",
             f"schedule function {ns}/wait 10t",
             f"execute in {b.dim} run forceload add {x1} {z1} {x2} {z2}",
             f"execute in {b.dim} {corners} run function {ns}/build",
@@ -436,6 +438,8 @@ def main():
             extra = [f"execute in {b.dim} run gamerule {r}" for r in rules if not r.startswith("respawn")]
         write(FUNC / f"maps/{b.name}/build.mcfunction", [
             f"schedule clear {ns}/wait",
+            f"execute if score #{b.name} practice.setup matches 1 run return fail",
+            f"scoreboard players set #{b.name} practice.setup 1",
             f"execute in {b.dim} run function {ns}/blocks",
             f"execute in {b.dim} run forceload remove {x1} {z1} {x2} {z2}",
             *extra,
