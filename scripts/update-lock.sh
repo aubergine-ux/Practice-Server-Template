@@ -9,7 +9,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 MANIFEST="$ROOT/manifest.txt"
 LOCK="$ROOT/versions.lock"
 ENV_FILE="$ROOT/docker/versions.env"
-UA="practice-server-template/update-lock (github.com/aubergine-ux/practice-server-template)"
+UA="practice-server-template/update-lock (github.com/aubergine-ux/Practice-Server-Template)"
 
 for bin in curl jq; do
   command -v "$bin" >/dev/null || { echo "error: '$bin' is required" >&2; exit 1; }

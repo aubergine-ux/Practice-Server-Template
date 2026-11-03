@@ -8,7 +8,7 @@ ROOT="$(cd "$(dirname "$0")" && pwd)"
 SERVER="$ROOT/server"
 LOCK="$ROOT/versions.lock"
 INSTALLED="$SERVER/.installed"   # files this script manages, used to clean up old versions
-UA="practice-server-template/setup (github.com/aubergine-ux/practice-server-template)"
+UA="practice-server-template/setup (github.com/aubergine-ux/Practice-Server-Template)"
 
 command -v curl >/dev/null || { echo "error: curl is required" >&2; exit 1; }
 
