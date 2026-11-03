@@ -1,0 +1,917 @@
+VERSION: 97
+
+# Mysql database setup.
+MYSQL-DATABASE:
+  ENABLED: false
+  SAVE-PERIOD: 5 # The server saves the player statistics for this minute interval to the mysql database.
+  CONNECTION:
+    HOST: localhost
+    PORT: 3306
+    DATABASE: zonepractice
+    USER: root
+    PASSWORD: mysecretpassword
+
+# Knockback modifier - it very much depends on the hit delay. You should test what is the optimal for you.
+KNOCKBACK:
+  NORMAL:
+    AIR-HORIZONTAL: 0.93
+    AIR-VERTICAL: 0.93
+    HORIZONTAL: 0.82
+    VERTICAL: 0.88
+    MAX-AIR-HORIZONTAL: -1.0 # Set <= 0 to disable cap.
+    MAX-AIR-VERTICAL: -1.0 # Set <= 0 to disable cap.
+    MAX-HORIZONTAL: -1.0 # Set <= 0 to disable cap.
+    MAX-VERTICAL: -1.0 # Set <= 0 to disable cap.
+  COMBO:
+    AIR-HORIZONTAL: 2.8
+    AIR-VERTICAL: 2.8
+    HORIZONTAL: 2.5
+    VERTICAL: 2.5
+    MAX-AIR-HORIZONTAL: 1.35 # Hard cap to avoid launch spikes.
+    MAX-AIR-VERTICAL: 0.62 # Hard cap to avoid launching players too high.
+    MAX-HORIZONTAL: 1.15 # Ground horizontal cap.
+    MAX-VERTICAL: 0.52 # Ground vertical cap.
+#
+# Setup limits
+SETUP:
+  MAX-LADDERS: 0 # Set to 0 or -1 for unlimited ladders.
+  ALLOW-ICON-EDIT-WHILE-ENABLED: false # If true, admins can use /arena set icon and /ladder set icon even while enabled.
+  PRESERVE-CUSTOM-KITS-ON-LADDER-DISABLE: false # If true, disabling a ladder keeps player custom kits for that ladder.
+#
+# Kit editor
+KIT-EDITOR:
+  EDITABLE-ARMOR: false # If false, players can't change the ladder's armor in the kit editor and custom kits always use the ladder's armor.
+#
+# Queue settings
+QUEUE:
+  COMBINED:
+    ENABLED: true # If true, lobby uses a single queue item instead of separate ranked and unranked items.
+    DEFAULT-GUI: UNRANKED # Options: UNRANKED, RANKED
+    SWITCH-ENABLED: true
+  MULTI:
+    ENABLED: true
+    PERMISSION: zpp.queue.multi
+    MAX-LADDERS: 3 # Set to -1 or 0 for unlimited.
+    SIDEBAR:
+      MULTIPLE-LABEL: Multiple Ladders
+      CURRENT-LADDER-FORMAT: '<white>Current: <gold>%ladder%'
+  UNRANKED:
+    CUSTOM-KIT:
+      ENABLED: true # If false, the custom kit queue feature is disabled and only shows filler items
+    MAX-QUEUE-TIME: 300 # In sec.
+    GUI-UPDATE-MINUTE: 2
+    DIVISION-SEARCH:
+      ENABLED: true
+      SETTINGS:
+        SEARCH-IN-OWN-DIVISIONS: 20 # In sec.
+        EXTEND-DIVISION-SEARCH: 10 # In sec.
+    SELECTOR-GUI:
+      SHOW-DISABLED-LADDERS: true
+      SIZE: 6
+      QUICK-MATCH-ENABLED: true
+      QUICK-MATCH-SLOT: 45
+      SWITCH-MODE-SLOT: 49
+      LADDER-SLOTS:
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 29
+      - 30
+      - 31
+      - 32
+      - 33
+      - 38
+      - 39
+      - 40
+      - 41
+      - 42
+      CATEGORY-SELECTOR-SLOTS:
+        PVP: 3
+        MINIGAMES: 5
+      CATEGORIES:
+        PVP:
+          DISPLAY-NAME: PVP
+          ICON-MATERIAL: DIAMOND_SWORD
+          SELECTED-ICON-MATERIAL: NETHERITE_SWORD
+          ICON-DISABLED: false
+          LADDERS:
+          - SPEARMACE
+          - MACE
+          - SPEARELYTRA
+          - SWORD
+          - CRYSTAL
+          - BOXING
+          - BUILDUHC
+          - AXE
+          - GAPPLE
+          - SG
+          - ARCHER
+          - SOUP
+          - CART
+          - NETHERITEPOTION
+          - DIAMONDPOTION
+        MINIGAMES:
+          DISPLAY-NAME: MINIGAMES
+          ICON-MATERIAL: SLIME_BALL
+          SELECTED-ICON-MATERIAL: TNT
+          ICON-DISABLED: false
+          LADDERS:
+          - SUMO
+          - TNTSUMO
+          - SPLEEF
+          - FIREBALL
+          - PEARLFIGHT
+          - MLGRUSH
+          - BRIDGES
+          - BATTLERUSH
+          - CREEPER
+          - BEDWARS
+          - SKYWARS
+  RANKED:
+    CUSTOM-KIT:
+      ENTRY-ENABLED: false # If true, ranked selector also shows the custom-kit queue entry.
+    MAX-QUEUE-TIME: 300 # In sec.
+    GUI-UPDATE-MINUTE: 1
+    DEFAULT-ELO: 1000
+    ELO-RANGE-TIME: 5 # Sec
+    ELO-RANGE-INCREASE: 20 # Range
+    ELO-CHANGE: 5-12 # Players receive a random elo between these two numbers. Only used when ELO-SYSTEM.MODE is RANDOM.
+    # Elo system for ranked match Elo changes.
+    # MODE: SKILL (default) uses the standard Elo formula
+    #       (newElo = oldElo + K * (result - expected)) where expected is based on both players' ratings,
+    #       so beating a much higher-rated player rewards more points than beating a much lower-rated one.
+    #       RANDOM keeps the old behavior: both players receive the same random value from ELO-CHANGE above.
+    ELO-SYSTEM:
+      MODE: SKILL # Options: SKILL (rating-based formula, default), RANDOM (fixed random interval from ELO-CHANGE).
+      K-FACTOR: 32 # Only used in SKILL mode. The maximum base Elo points at stake in a single match (FIDE standard is 32).
+      # Higher values make ratings move faster after each match; lower values keep ratings more stable. Recommended range: 16-40.
+      MAX-CHANGE: 25 # Hard cap on the absolute Elo points a player can gain OR lose in a single ranked match (applies to both modes).
+    # In SKILL mode the formula never exceeds K-FACTOR, so setting MAX-CHANGE below K-FACTOR (e.g. 15) adds a stricter
+    # guard against extreme rating swings and Elo farming. In RANDOM mode it caps the upper bound of ELO-CHANGE.
+    # Set to 0 to disable the cap.
+    MAX-PING: 300 # Maximum ping a player can join a ranked queue.
+    SELECTOR-GUI:
+      SHOW-DISABLED-LADDERS: true
+      SIZE: 6
+      QUICK-MATCH-ENABLED: true
+      QUICK-MATCH-SLOT: 45
+      SWITCH-MODE-SLOT: 49
+      LADDER-SLOTS:
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 29
+      - 30
+      - 31
+      - 32
+      - 33
+      - 38
+      - 39
+      - 40
+      - 41
+      - 42
+      CATEGORY-SELECTOR-SLOTS:
+        PVP: 3
+        MINIGAMES: 5
+      CATEGORIES:
+        PVP:
+          DISPLAY-NAME: PVP
+          ICON-MATERIAL: DIAMOND_SWORD
+          SELECTED-ICON-MATERIAL: NETHERITE_SWORD
+          ICON-DISABLED: false
+          LADDERS:
+          - SPEARMACE
+          - MACE
+          - SPEARELYTRA
+          - SWORD
+          - CRYSTAL
+          - BOXING
+          - BUILDUHC
+          - AXE
+          - GAPPLE
+          - SG
+          - ARCHER
+          - SOUP
+          - CART
+          - NETHERITEPOTION
+          - DIAMONDPOTION
+        MINIGAMES:
+          DISPLAY-NAME: MINIGAMES
+          ICON-MATERIAL: SLIME_BALL
+          SELECTED-ICON-MATERIAL: TNT
+          ICON-DISABLED: false
+          LADDERS:
+          - SUMO
+          - TNTSUMO
+          - SPLEEF
+          - FIREBALL
+          - PEARLFIGHT
+          - MLGRUSH
+          - BRIDGES
+          - BATTLERUSH
+          - CREEPER
+          - BEDWARS
+          - SKYWARS
+#
+# Admin settings
+ADMIN-SETTINGS:
+  OP-BYPASS-ELO-CHANGE: true # If true, op players ladder elo's cannot be changed by commands.
+  OP-BYPASS-UNRANKED-CHANGE: true # If true, commands cannot change op players' daily unranked limit.
+  OP-BYPASS-RANKED-CHANGE: true # If true, commands cannot change op players daily ranked limit.
+  OP-BYPASS-EXP-CHANGE: true # If true, commands cannot change op players' experience.
+  OP-BYPASS-INFOGUI: true # If true, op players info gui can only be opened by themselves.
+  OP-BYPASS-FULL-RESET: true # If true, they can only reset op players themselves.
+  DAILY-LIMIT-RESET: true # Reset every player's daily ranked, unranked, event start and party broadcast limits at 23:59:59 server time.
+#
+# Auto save settings
+#
+# It basically doesn't affect the server performance since it happens async.
+AUTO-SAVE:
+  ENABLED: true # It is recommended to enable this, as the plugin is only saved during automatic backups and when the server is shut down. If it crashes and auto-save is disabled, all progress will be lost.
+  ALERT: true
+  INTERVAL: 10 # minutes
+#
+# Match settings
+MATCH-SETTINGS:
+  SHOW-PLAYERS-IN-TAB: false # If true, all online players remain visible in the tab list even when their entities are hidden.
+  SHOW-PLAYERS-IN-LOBBY-TAB: false # Keep hidden players in the tab list for lobby players.
+  SHOW-SPECTATORS-IN-TAB: false # If true, the fighters of a match see its spectators in their tab list.
+  RIVALRY-MESSAGE: true # Show your lifetime 1v1 record against the opponent when a duel starts. Text: MATCH.DUEL.RIVALRY in language.yml.
+  SPECTATOR-TAB-PREFIX: '<dark_gray>[<gray>Spec<dark_gray>] ' # Prefix in front of a spectator's name in the tab list of the fighters. Supports %player%, "" for none.
+  TEAMS:
+    TEAM1:
+      NAME: <blue>[B]
+      COLOR: <blue>
+      NAMETAG:
+        PREFIX: ''
+        NAME-COLOR: BLUE
+        SUFFIX: ''
+    TEAM2:
+      NAME: <red>[R]
+      COLOR: <red>
+      NAMETAG:
+        PREFIX: ''
+        NAME-COLOR: RED
+        SUFFIX: ''
+    FFA:
+      COLOR: <yellow>
+  MATCH-TYPE-NAMES:
+    DUEL: <yellow><bold>Duel
+    PARTY_FFA: <yellow><bold>Party FFA
+    PARTY_SPLIT: <yellow><bold>Party Split
+    PARTY_VS_PARTY: <yellow><bold>Party Vs Party
+  WEIGHT-CLASS:
+    UNRANKED: <green>Unranked
+    RANKED: <red>Ranked
+  LEAVE-COMMAND:
+    ENABLED: true
+    WEIGHT-CLASS:
+      UNRANKED: true
+      RANKED: false
+  END-COMMAND:
+    DUEL:
+      UNRANKED: # Both commands have %player% and %opponent% placeholders.
+        WINNER-COMMANDS:
+        - ''
+        LOSER-COMMANDS:
+        - ''
+      RANKED: # Both commands have %player% and %opponent% placeholders.
+        WINNER-COMMANDS:
+        - ''
+        LOSER-COMMANDS:
+        - ''
+  START-COMMAND:
+    LADDER_NAME: # like GAPPLE etc. always write with upper case
+      MATCH:
+      - ''
+      ROUND:
+      - ''
+  MATCH-STATISTIC:
+    REMOVE-AFTER: 60 # After the seconds, the players won't be able to open their match statistics.
+  TITLE:
+    START-COUNTDOWN-FROM: 5
+  MATCH-FOUND:
+    ICON-ANIMATION: false # If true, when a match is found while queueing, the ladder's icon is briefly shown to both players with the totem-of-undying animation.
+    ICON-ANIMATION-DELAY: 40 # Ticks before players are teleported after the animation starts.
+  HEALTH-BELOW-NAME:
+    SATURATED-HEART-INDICATOR: true # If true, the below-name heart icon turns yellow when the player is saturated.
+    DECIMAL-HEART-INDICATOR:
+      ALWAYS-SHOW: true # If true, the below-name heart icon always shows the decimal hearts.
+      LOW-HEALTH-DECIMAL-RATIO: true # If true, health below 2 hearts is shown as a decimal ratio (current/max).
+    LOW-HEALTH-THRESHOLD: 4.0
+    SCALE: 20 # The scale setting defines the health display range between 10 and 100 with a default value of 20.
+    SYMBOL: ♥ # The symbol displayed after the health value in the below-name display.
+    TEXT-SHADOW: true # If true, a drop shadow is drawn behind the above-head nametag.
+    BACKGROUND: 0 # Background of the above-head nametag as an ARGB value, 0 for none.
+    TOP-LINE: '' # Line drawn above the nametag, supports PlaceholderAPI placeholders.
+    BOTTOM-LINE: '' # Line drawn below the nametag, supports PlaceholderAPI placeholders.
+  BUILD-LIMIT-DEFAULT: 4 # Starting value for a new arena's build height limit. Arenas without a build height limit (set with the arena setup wand) have no height limit.
+  AFTER-COUNTDOWN: 3 # After the match is over this countdown start, and when it's over, the players teleport back to the lobby.
+  ROLLBACK:
+    MULTIPLIER: 1 # Multiplies rollback speed/work per tick for match/event/ffa rollback. Increase carefully.
+    PROGRESS-TITLE: true # Shows a "Resetting" title with the progress to players and spectators while a build arena resets (matches between rounds and FFA).
+  GOLDEN-HEAD: # Golden head settings.
+    TEXTURE: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGUzNGM1MGZkY2E4ZTM2YzFlMDUwYjk2M2YyZTZlMWY3MGU0NjVlNTVjNDQzZjY4OTQ3NDQzNDA5Y2M2YTMzOCJ9fX0= # Optional: direct skin URL or Base64 texture value. If set, item renders as a custom player head.
+    COOLDOWN: 10 # Cooldown in seconds between Golden Head uses.
+    ACTION-BAR-COOLDOWN-MSG: <gold>🕒 <yellow>%remaining%s
+    ITEM:
+      NAME: <yellow><bold>Golden Head
+      MATERIAL: GOLDEN_APPLE
+      DAMAGE: 1
+      LORE:
+      - ''
+      - <gray>This apple gives you extra
+      - <gray>health and effects.
+      - ''
+    #
+    # You can add any potion effects for the golden head.
+    # But it has to follow a strict format like below:
+    # POTION_TYPE::DURATION_IN_SECONDS::STRENGTH
+    # You can find the potion types in here: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html
+    EFFECTS:
+    - ABSORPTION::90::1
+    - REGENERATION::20::2
+  REMOVE-EMPTY-BOTTLE: true # Removes empty potion bottles after the player use it.
+  SOUP:
+    HEAL: 6.5 # Health points restored by mushroom stew in matches, FFA, and events.
+  DUEL:
+    SWORD-TO-DUEL: true # When enabled, hitting a player with the unranked sword in the lobby sends a duel request.
+    INVITATION-EXPIRY: 60 # After the seconds, the duel request will expire.
+    ROUND-SELECTOR:
+      MAX: 10
+      MIN: 1 # Can't be lower than 1.
+  COOLDOWN:
+    ENDER-PEARL:
+      SECONDS: 13.0 # This is the default cooldown. You can change it in the ladder settings.
+      EXP-BAR: true # Countdown shows on exp bar.
+    WIND-CHARGE:
+      SECONDS: 0.5 # Default wind charge cooldown in seconds. You can change it in the ladder settings.
+    FIREWORK-ROCKET:
+      SECONDS: 1.0 # Cooldown in seconds for using firework rockets with elytra. Default is 1 second.
+    GOLDEN-APPLE:
+      SECONDS: 0 # Cooldown in seconds for using golden apples. Default is 0 seconds (no cooldown).
+  FIREBALL-FIGHT: # These are multiplier values, so please test what is optimal for you and don't change them too much at once or the difference will multiply.
+    FIREBALL-SPEED: 1.0
+    FIREBALL-YIELD: 2.8
+    EXPLOSION:
+      TNT:
+        HORIZONTAL: 1.4
+        VERTICAL: 1.3
+      FIREBALL:
+        HORIZONTAL: 1.6
+        VERTICAL: 1.4
+  TNT-SUMO:
+    FUSE-TICKS: 0 # 0 = TNT explodes the moment it is placed. Vanilla TNT uses 80 (4 seconds).
+    DEBUG: false # Logs every TNT explosion's knockback per player to the console. For tuning only.
+    EXPLOSION: # Vanilla-based defaults, not measured against any server. Tune after a playtest.
+      RADIUS: 8.0 # Knockback reaches this far from the TNT. Vanilla TNT: 8.
+      KNOCKBACK-MULTIPLIER: 1.0 # 1.0 = vanilla explosion strength.
+      SELF-MULTIPLIER: 0.1 # Your own TNT barely pushes you. 1.0 = same as enemies.
+      ENEMY-MULTIPLIER: 1.0 # Extra multiplier for opponents' TNT.
+      TEAMMATE-MULTIPLIER: 0.1 # Teammates' TNT barely pushes you. 1.0 = same as enemies.
+      USE-EXPOSURE: true # Blocks between the TNT and a player reduce knockback, like vanilla.
+  BEDWARS:
+    TNT-JUMP: # Multipliers like FIREBALL-FIGHT. Test small changes.
+      HORIZONTAL: 1.2
+      VERTICAL: 1.1
+      SELF-DAMAGE: 1.0 # Damage from your own TNT (TNT jumping).
+      OTHER-DAMAGE: 8.0 # Damage from other players' TNT. -1 keeps vanilla damage.
+  BOXING:
+    CUSTOM-ATTACK-COOLDOWN:
+      ENABLED: true
+      COUNT-FROM: 0.8 # 0.0-1.0 value
+      ONLY-SWORD: true
+  PARTY:
+    SPLIT-TEAM-DAMAGE: false # In party split games, players with the same team can't hurt each other (if false).
+    PARTY-VS-PARTY-TEAM-DAMAGE: false # In party vs party games, players with the same party can't hurt each other (if false).
+  REMATCH: # Players get an item in their lobby inventory after duels, so they can easily request a rematch.
+    ENABLED: true
+    EXPIRE-TIME: 20 # sec
+  AUTO-QUEUE: # When enabled, players who turned on the Auto-Queue setting are automatically re-queued into the same ladder and weight class after their duel ends.
+    ENABLED: true
+  KIT-ITEMS:
+    DEFAULT-KIT:
+      NAME: <yellow><bold>Default Kit
+      MATERIAL: ENCHANTED_BOOK
+    CUSTOM-KIT:
+      NAME: <green><bold>Kit %kit%
+      MATERIAL: ENCHANTED_BOOK
+  LADDER-SETTINGS:
+    BRIDGE:
+      REGENERATING-ARROW:
+        ENABLED: true
+        EXP-BAR: true
+        TIME: 5 # In sec.
+  DISPLAY-ARROW-HIT-HEALTH: true # If true, the player will see the health of the player they hit.
+#
+# FFA settings
+FFA:
+  NAMETAG:
+    TEXT-SHADOW: false # If true, a drop shadow is drawn behind FFA players' nametags.
+    BACKGROUND: 0 # Background of FFA players' nametags as an ARGB value, 0 for none.
+    TOP-LINE: '' # Line drawn above FFA players' nametags, supports PlaceholderAPI placeholders.
+    BOTTOM-LINE: '' # Line drawn below FFA players' nametags, supports PlaceholderAPI placeholders.
+  ROLLBACK:
+    SECONDS: 300 # After the seconds, the arena will be reseted back to its original state (only on build arenas).
+    TELEPORT-TO-SPAWN: false # If true, players are teleported back to the arena's spawn points once the reset has finished.
+    FREEZE-DURING-RESET: false # If true, when the reset starts players are teleported to the spawn points and spectators to the spectator location. Everyone is frozen and players are hidden from each other, can't take damage, build or throw projectiles until the reset is done.
+  HEALTH-RESET-ON-KILL: false # Default for newly created FFA arenas. If enabled, killers are fully healed on kill.
+  HEALTH-BELOW-NAME: false # Default for newly created FFA arenas. If enabled, players see heart indicators below names.
+  DISPLAY-ARROW-HIT-HEALTH: true # If true, the player will see the health of the player they hit.
+  ALLOW-DESTROYABLE-BLOCK: true # If true, player can destroy the fixed blocks in the arena that their ladder has.
+  ALLOW-DROP-ITEMS: false # Default for newly created FFA arenas. If true, players can drop items from their inventory.
+  ALLOW-PICKUP-ITEMS: true # Default for newly created FFA arenas. If true, players can pick up items from the ground.
+  CUSTOM-KIT-SELECTION-TIME: 10 # In seconds. Only applies to players with custom kits. If a player doesn't select a custom kit within this time, the default kit is applied (prevents staying invincible forever).
+  KIT-SWITCH-COOLDOWN: 0 # In seconds. Time players must wait between switching kits with /ffa kit. 0 disables the cooldown.
+  COMBAT-LOG:
+    ENABLED: true # If true, combat log is enabled for FFA (tagging players in combat).
+    TAG-DURATION: 15 # In seconds. How long a player remains "in combat" after dealing or taking damage.
+    BLOCK-KIT: true # If true, players cannot use /ffa kit while in combat (prevents health restore).
+    BLOCK-LEAVE: true # If true, players cannot use /ffa leave while in combat (prevents escaping).
+    COUNT-AS-KILL-ON-QUIT: true # If true, disconnecting while in combat counts as a kill for their opponent.
+    ACTION-BAR: true # If true, shows a countdown action bar while the player is in combat.
+    ACTION-BAR-MSG: '<red><bold>In Combat: <yellow><bold>%remaining%s'
+    CLEAR-ON-KILL: false # If true, killing a player clears the killer's "in combat" status.
+#
+# Spectator settings
+SPECTATOR-SETTINGS:
+  SPECTATOR-MODE: true # If false, player can't use spectator mode, only watch single matches.
+  SPECTATOR-MENU: true # Turn on/off the spectator menu.
+  SPECTATOR-MENU-FFA: true # If false, FFA arenas are hidden from the spectator menu and skipped by the random spectate item, and lines with %spectators% are removed from the FFA game sidebars.
+  SPECTATOR-MENU-EVENTS: true # If false, events are hidden from the spectator menu.
+  VANISH-COOLDOWN: 5 # Between vanish toggles this many seconds has to pass.
+  RANDOM-MATCH-COOLDOWN: 10 # Between random match searches, this many seconds has to pass.
+  SPECTATOR-SPEED: 2 # The spectators flying speed. Between 1 and 10
+  MATCH-GAMEMODE: SURVIVAL # Game mode of match spectators. SURVIVAL: flying in survival, hotbar items work. SPECTATOR: Minecraft's spectator mode, they fly through blocks and double-tap sneak to open their hotbar items as a menu.
+#
+# Party settings
+PARTY:
+  SETTINGS:
+    MAX-PARTY-MEMBERS:
+      DEFAULT: 6 # Maximum party members, if the owner doesn't have permission to change it.
+    DEFAULT:
+      PUBLIC-PARTY: false
+      ALL-INVITE: false
+      PARTY-CHAT: true
+      DUEL-REQUESTS: true
+  PUBLIC-BROADCAST-TIME: 20 # The party will be advertised at these intervals (seconds).
+  BROADCAST-TIMES: 5 # This many times the party will broadcast in the chat.
+  PARTY-INVITE-COOLDOWN: 60 # After these seconds, the party invite will expire.
+  REQUEST-EXPIRY: 60 # After the seconds the party vs party request will expire.
+  END-MATCH-ON-DISBAND: true # If the party is disbanded, the ongoing match will end.
+  LEAVE-CONFIRMATION: true # Ask for confirmation (Approve/Cancel menu) before leaving the party with the leave item. /party leave stays instant.
+#
+# Staff mode
+STAFF-MODE:
+  JOIN-HIDE-FROM-PLAYERS: false # When a staff joins, the server instantly hides them from other players.
+  STAFF-SPECTATOR-SPEED: 2 # Staff mode spectation flying speed.
+#
+# Command filter for players in a match, FFA or event. Players with zpp.bypass.commands are not filtered.
+COMMAND-FILTER:
+  ENABLED: false
+  MODE: WHITELIST # WHITELIST: only ZonePractice commands and the listed commands are allowed. BLACKLIST: only the listed commands are blocked.
+  COMMANDS: # Command names without "/", aliases must be listed separately. Example: "msg", "r".
+    - msg
+    - r
+#
+# Sounds - You can find the sound list here: https://helpch.at/docs/1.20.3/org/bukkit/Sound.html
+SOUNDS:
+  MATCH_START_COUNTDOWN:
+    ENABLED: true
+    SOUND: BLOCK_NOTE_BLOCK_PLING
+    VOLUME: 1
+    PITCH: 1
+  MATCH_STARTED:
+    ENABLED: true
+    SOUND: ENTITY_PLAYER_LEVELUP
+    VOLUME: 1
+    PITCH: 1
+  ARENA_GATE_OPEN:
+    ENABLED: true
+    SOUND: BLOCK_PISTON_CONTRACT
+    VOLUME: 1
+    PITCH: 1
+  BED_BREAK:
+    ENABLED: true
+    SOUND: ENTITY_ENDER_DRAGON_GROWL
+    VOLUME: 1
+    PITCH: 1
+  MATCH_PLAYER_TEMP_DEATH: # When a bed fight player dies in a match while he still has his bed.
+    ENABLED: true
+    SOUND: ENTITY_PLAYER_LEVELUP
+    VOLUME: 1
+    PITCH: 1
+  MATCH_PLAYER_DEATH:
+    ENABLED: true
+    SOUND: ENTITY_BLAZE_DEATH
+    VOLUME: 1
+    PITCH: 1
+  TOTEM_SAVE_PLAYER:
+    ENABLED: true
+    SOUND: ITEM_TOTEM_USE
+    VOLUME: 1
+    PITCH: 1
+  EVENT_QUEUE_COUNTDOWN:
+    ENABLED: true
+    SOUND: BLOCK_NOTE_BLOCK_PLING
+    VOLUME: 1
+    PITCH: 1
+  EVENT_START_COUNTDOWN:
+    ENABLED: true
+    SOUND: BLOCK_NOTE_BLOCK_PLING
+    VOLUME: 1
+    PITCH: 1
+  GUI_CLICK_ADVANCE:
+    ENABLED: true
+    SOUND: BLOCK_STONE_BUTTON_CLICK_ON
+    VOLUME: 0.15
+    PITCH: 0.8
+  GUI_CLICK_BACK:
+    ENABLED: true
+    SOUND: BLOCK_NOTE_BLOCK_BASS
+    VOLUME: 0.12
+    PITCH: 0.75
+#
+# Leaderboard settings
+LEADERBOARD:
+  HOLOGRAM:
+    DYNAMIC-UPDATE: 10 # Sec. This type of hologram is switching between ladders.
+    STATIC-UPDATE: 30 # Sec. This type of hologram is always show one ladder or global elo stats.
+    FORMAT: # Also placeholders: %division%, %division_short%, %group%, %ladder_name%
+      NULL-LINE: <gold>%number%. <red>N/A
+      NOTHING-TO-DISPLAY: <red>There is nothing to display.
+      ELO:
+        TITLE-LINE-SPACING: 0.5
+        LINE-SPACING: 0.3
+        FORMAT: '<gold>%placement%. %division% | %player%<dark_gray>: <yellow>%score%'
+        LINES:
+          GLOBAL:
+          - <gold>ELO Top
+          - '%top%'
+          LADDER:
+          - <gold>ELO Top <gray>- <yellow>%ladder_displayName%
+          - '%top%'
+      WIN:
+        TITLE-LINE-SPACING: 0.5
+        LINE-SPACING: 0.3
+        FORMAT: '<gold>%placement%. %division% | %player%<dark_gray>: <yellow>%score%'
+        LINES:
+          GLOBAL:
+          - <gold>Win Top
+          - '%top%'
+          LADDER:
+          - <gold>Win Top <gray>- <yellow>%ladder_displayName%
+          - '%top%'
+      KILLS:
+        TITLE-LINE-SPACING: 0.5
+        LINE-SPACING: 0.3
+        FORMAT: '<gold>%placement%. %division% | %player%<dark_gray>: <yellow>%score%'
+        LINES:
+          GLOBAL:
+          - <gold>Kill Top
+          - '%top%'
+          LADDER:
+          - <gold>Kill Top <gray>- <yellow>%ladder_displayName%
+          - '%top%'
+      DEATHS:
+        TITLE-LINE-SPACING: 0.5
+        LINE-SPACING: 0.3
+        FORMAT: '<gold>%placement%. %division% | %player%<dark_gray>: <yellow>%score%'
+        LINES:
+          GLOBAL:
+          - <gold>Deaths Top
+          - '%top%'
+          LADDER:
+          - <gold>Deaths Top <gray>- <yellow>%ladder_displayName%
+          - '%top%'
+      WIN_STREAK:
+        TITLE-LINE-SPACING: 0.5
+        LINE-SPACING: 0.3
+        FORMAT: '<gold>%placement%. %division% | %player%<dark_gray>: <yellow>%score%'
+        LINES:
+          GLOBAL:
+          - <gold>Win Streak Top
+          - '%top%'
+          LADDER:
+          - <gold>Win Streak Top <gray>- <yellow>%ladder_displayName%
+          - '%top%'
+      BEST_WIN_STREAK:
+        TITLE-LINE-SPACING: 0.5
+        LINE-SPACING: 0.3
+        FORMAT: '<gold>%placement%. %division% | %player%<dark_gray>: <yellow>%score%'
+        LINES:
+          GLOBAL:
+          - <gold>Best Win Streak Top
+          - '%top%'
+          LADDER:
+          - <gold>Best Win Streak Top <gray>- <yellow>%ladder_displayName%
+          - '%top%'
+      LOSE_STREAK:
+        TITLE-LINE-SPACING: 0.5
+        LINE-SPACING: 0.3
+        FORMAT: '<gold>%placement%. %division% | %player%<dark_gray>: <yellow>%score%'
+        LINES:
+          GLOBAL:
+          - <gold>Lose Streak Top
+          - '%top%'
+          LADDER:
+          - <gold>Lose Streak Top <gray>- <yellow>%ladder_displayName%
+          - '%top%'
+      BEST_LOSE_STREAK:
+        TITLE-LINE-SPACING: 0.5
+        LINE-SPACING: 0.3
+        FORMAT: '<gold>%placement%. %division% | %player%<dark_gray>: <yellow>%score%'
+        LINES:
+          GLOBAL:
+          - <gold>Best Lose Streak Top
+          - '%top%'
+          LADDER:
+          - <gold>Best Lose Streak Top <gray>- <yellow>%ladder_displayName%
+          - '%top%'
+      SETUP-HOLO:
+        TITLE: <red>This hologram must be set.
+        LINE: '<gold>Hologram Name: <yellow>%name%'
+#
+# Sidebar settings
+SIDEBAR:
+  ENABLED: true # If false, the sidebar is fully disabled for all players regardless of profile setting.
+  UPDATE-TIME: 20 # In ticks. 20 ticks = 1 second
+#
+# Arena settings
+ARENA:
+  LOAD-CHUNKS: true # If true, the server will load the enabled arena's chunks.
+  TELEPORT-TO-COPY: false # Recommend: false,  If you copy an arena, the server will teleport you there, so you can watch it happening.
+  FAST-COPY: # If true, the server more likely to be slow, but it triples the copy performance. 100x50x65 arena copy takes 1,5 minutes with fast copy.
+    USE-FAWE: false
+    ENABLED: true
+    MULTIPLIER: 10 # Be careful with this value.
+  DEFAULT-ICON: # If default icon is enabled it won't be necessary to set an arena icon, but you still can.
+    ENABLED: false
+    ICON:
+      NAME: <gold>%arena%
+      MATERIAL: FIREWORK_STAR
+  # DAMAGE: 4 # You can set the damage to the material as well.
+  GATES: # Gates are map blocks around the spawns that open with an animation when the round starts. Mark them with the arena setup wand (Gates mode).
+    DEFAULT-ANIMATION: SINK # Used by arenas without their own animation: INSTANT, SINK, RISE, SHRINK, DOORS, SHATTER, WAVE or RANDOM.
+    DURATION: 20 # Length of the animation in ticks (20 ticks = 1 second), 5-100.
+    PARTICLES: true # Block particles for the INSTANT, SHATTER and WAVE animations.
+    MAX-BLOCKS: 256 # Maximum number of blocks in one gate.
+#
+# Shrinking border settings
+SHRINKING-BORDER:
+  ENABLED: true # Master switch. If false, no shrinking border is created in any match, whatever the ladder settings say.
+  WARNING-DISTANCE: 5 # Distance in blocks from the border at which players' screens start to turn red.
+  ANNOUNCE-BEFORE: 10 # Seconds before the border starts shrinking to warn the players. 0 to disable.
+  DEFAULTS: # Starting values for ladders without their own border settings. Change them per ladder in the ladder Settings GUI.
+    START-DELAY: 120 # Seconds after the round starts before the border begins to shrink.
+    SHRINK-DURATION: 120 # Seconds the border takes to shrink from the arena's size to FINAL-SIZE.
+    FINAL-SIZE: 10 # Side length of the border in blocks once it stops shrinking.
+    DAMAGE: 1.0 # Damage dealt to a player outside the border (2.0 = one heart). Ignores armor.
+    DAMAGE-INTERVAL: 1 # Seconds between two damage ticks while a player is outside the border.
+#
+# Pillars of Fortune ladder settings
+PILLARS:
+  EVERYTHING: # Item pool of Pillars ladders with Everything Mode on. Interval and amount are set per ladder in the ladder Settings GUI.
+    BLOCK-AMOUNT: 1 # Blocks are given in stacks of this size. Other items are given one at a time.
+    # Items that are never given. Use material names; * matches any text (e.g. "*_SAPLING").
+    # Spawn eggs, boats, minecarts and other entity items are listed because their entities are not removed when the match ends.
+    BLACKLIST:
+    - COMMAND_BLOCK
+    - CHAIN_COMMAND_BLOCK
+    - REPEATING_COMMAND_BLOCK
+    - STRUCTURE_BLOCK
+    - STRUCTURE_VOID
+    - JIGSAW
+    - BARRIER
+    - LIGHT
+    - DEBUG_STICK
+    - KNOWLEDGE_BOOK
+    - TEST_BLOCK
+    - TEST_INSTANCE_BLOCK
+    - BEDROCK
+    - END_PORTAL_FRAME
+    - SPAWNER
+    - TRIAL_SPAWNER
+    - VAULT
+    - REINFORCED_DEEPSLATE
+    - BUDDING_AMETHYST
+    - PETRIFIED_OAK_SLAB
+    - '*_SPAWN_EGG'
+    - '*_BOAT'
+    - '*_RAFT'
+    - '*MINECART'
+    - ARMOR_STAND
+    - ITEM_FRAME
+    - GLOW_ITEM_FRAME
+    - PAINTING
+    - END_CRYSTAL
+    - LEAD
+    - '*_SAPLING'
+    - '*_LEAVES'
+    - '*_PROPAGULE'
+    - AZALEA
+    - FLOWERING_AZALEA
+    - SHORT_GRASS
+    - TALL_GRASS
+    - SHORT_DRY_GRASS
+    - TALL_DRY_GRASS
+    - FERN
+    - LARGE_FERN
+    - BUSH
+    - '*_BUSH'
+    - SEAGRASS
+    - KELP
+    - VINE
+    - '*_VINES'
+    - GLOW_LICHEN
+    - HANGING_ROOTS
+    - '*_ROOTS'
+    - NETHER_SPROUTS
+    - '*_FUNGUS'
+    - '*_MUSHROOM'
+    - DANDELION
+    - POPPY
+    - BLUE_ORCHID
+    - ALLIUM
+    - AZURE_BLUET
+    - '*_TULIP'
+    - OXEYE_DAISY
+    - CORNFLOWER
+    - LILY_OF_THE_VALLEY
+    - WITHER_ROSE
+    - TORCHFLOWER
+    - PITCHER_PLANT
+    - SUNFLOWER
+    - LILAC
+    - PEONY
+    - SPORE_BLOSSOM
+    - PINK_PETALS
+    - WILDFLOWERS
+    - LEAF_LITTER
+    - CACTUS_FLOWER
+    - CLOSED_EYEBLOSSOM
+    - OPEN_EYEBLOSSOM
+    - SMALL_DRIPLEAF
+    - BIG_DRIPLEAF
+    - LILY_PAD
+    - SEA_PICKLE
+    - '*_CORAL'
+    - '*_CORAL_FAN'
+    - CHORUS_PLANT
+    - CHORUS_FLOWER
+    - '*_SEEDS'
+    - PITCHER_POD
+    - '*_CARPET'
+    - '*_BANNER_PATTERN'
+    - '*_POTTERY_SHERD'
+    - '*_SMITHING_TEMPLATE'
+    - MUSIC_DISC_*
+    - DISC_FRAGMENT_5
+    - '*_DYE'
+    - MAP
+    - FILLED_MAP
+    - WRITTEN_BOOK
+    - WRITABLE_BOOK
+#
+# Event settings
+EVENT:
+  MULTIPLE: false # If true, multiple events can happen in the same time. But only one can be in the collecting phase.
+  AUTO-EVENTS: true
+  DUEL:
+    POST-KILL-DELAY: 3 # Seconds to wait after a duel-event elimination before forwarding/next round. (alias: event-post-kill-delay)
+  ENDERPEARL-COOLDOWN: 10 # In sec.
+  BROADCAST:
+    ENABLE: true
+    MESSAGE-TO:
+      IN-PARTY: true # If true and the player is a member of a party, he will receive the broadcast message.
+      IN-UNRANKED-MATCH: true # If true and the player is in an unranked match, he will receive the broadcast message.
+      IN-RANKED-MATCH: false # If true and the player is in a ranked match, he will receive the broadcast message.
+      IN-EVENT: true # If true and the player is in another event, he will receive the broadcast message.
+  PLAYER-TRACKER: # Shows the nearest player.
+    NAME: <red>Player Tracker <gray>(Right-Click)
+    MATERIAL: COMPASS
+  LMS: # Please be aware that building is not yet supported for the event.
+    NAME: LMS
+    WINNER-COMMAND:
+    - practice ranked add %player% 3
+    AUTO-EVENTS: # At this time of the day an automatic lms event is going to start. You can extend the list, and add it to other events as well. If you have any question about this, please join the discord server.
+      - 18:30
+  OITC:
+    NAME: OITC
+    SETTINGS:
+      PLAYER-LIFE: 5 # Every player gets this many lives. When they die, they loose 1 life.
+    WINNER-COMMAND:
+    - practice ranked add %player% 3
+    - eco give %player% 10
+  TNTTAG:
+    NAME: TNT Tag
+    WINNER-COMMAND:
+    - practice ranked add %player% 3
+    TAGGED-ITEM:
+      NAME: <red>You're IT, tag someone!
+      MATERIAL: TNT
+  BRACKETS: # Please be aware that building is not yet supported for the event.
+    NAME: Brackets
+    WINNER-COMMAND:
+    - practice ranked add %player% 3
+  SUMO:
+    NAME: Sumo
+    WINNER-COMMAND:
+    - practice ranked add %player% 3
+  SPLEGG: # Please be aware that building is not yet supported for the event.
+    NAME: Splegg
+    WINNER-COMMAND:
+    - practice ranked add %player% 3
+    BREAKABLE-MATERIALS: # Generic entries like WOOL or TERRACOTTA also match colored variants.
+      - WOOL
+    EGG-LAUNCHER-ITEM:
+      NAME: <green>Shoot The Blocks <gray>(Right-Click)
+      MATERIAL: IRON_SHOVEL
+  JUGGERNAUT: # Please be aware that building is not yet supported for the event.
+    NAME: Juggernaut
+    WINNER-COMMAND:
+    - practice ranked add %player% 3
+#
+# Player settings
+PLAYER:
+  DELETE-INACTIVE-USER:
+    ENABLED: true
+    DAYS: 30 # After this number of days, the inactive player profiles will be deleted.
+  SETTINGS-DELAY: 3 # Sec between settings can be changed. It can be bypassed.
+  LOBBY-PROTECTION:
+    allow-velocity: false # player don't get damaged but they get knocked back
+    allow-damage: false
+    allow-inventory-interact: false
+    allow-item-drop: false
+    allow-item-pickup: false
+    allow-hunger: false
+    allow-block-break: false
+    allow-block-place: false
+    allow-lobby-interact: false
+  LOBBY-COSMETICS:
+    DEFAULT-LOBBY-COSMETIC: NONE # Lobby cosmetic for players who never picked one: NONE, ELYTRA, WIND_CHARGE, TRIDENT or SPEAR
+    SLOTS: # Where each lobby cosmetic item goes: OFF_HAND or a hotbar slot 0-8 (first free slot if taken)
+      ROCKETS: OFF_HAND
+      WIND_CHARGE: OFF_HAND
+      TRIDENT: OFF_HAND
+      SPEAR: OFF_HAND
+    PLAYER-SWAP: false # Let players press F (swap hands) to move their lobby cosmetic item between the off hand and the hotbar
+    LEFT-CLICK-TRIGGER: true # Trident and Spear lunge on left-click too. Set to false for right-click only (useful with NPC plugins that react to any click).
+  NICKNAME:
+    VALIDATION-PATTERN: ^[a-zA-Z0-9_]{3,16}$
+  LOBBY-NAMETAG:
+    ENABLED: true
+    TEXT-SHADOW: false # If true, a drop shadow is drawn behind lobby players' nametags.
+    BACKGROUND: 0 # Background of lobby players' nametags as an ARGB value, 0 for none.
+    TOP-LINE: '' # Line drawn above lobby players' nametags, supports PlaceholderAPI placeholders.
+    BOTTOM-LINE: '' # Line drawn below lobby players' nametags, supports PlaceholderAPI placeholders.
+  NAMETAG-MANAGEMENT:
+    ENABLED: true # If false, ZonePractice will not manage nametags (above-head prefix/suffix/color) or the tab-list at all.
+  JOIN-TELEPORT-LOBBY: true # If true, the player will be teleported to the lobby when they join the server.
+  JOIN-MESSAGE: false # If true, the default Minecraft join message will be shown when a player joins.
+  GROUP-CHAT:
+    ENABLED: true # If enabled, the player's chat will be formatted by their group. It is only viable if "SERVER-CHAT" is also enabled.
+  DEFAULT-SETTINGS:
+    DUELREQUEST: true
+    AUTOQUEUE: false
+    SIDEBAR: true
+    HIDEPLAYERS: false
+    PARTYINVITES: true
+    ALLOWSPECTATE: true
+    PRIVATEMESSAGE: true
+    FLYING: false
+    WORLD-TIME: DAY # Options: SUNRISE, DAY, SUNSET, NIGHT
+    PREFIX-VISIBILITY: PREFIX_AND_SUFFIX # Options: NONE, PREFIX, SUFFIX, PREFIX_AND_SUFFIX
+#
+# Division settings
+DIVISIONS:
+  ENABLED: true
+  NEW-DIVISION-MESSAGE: true
+  MIN-DIVISION-FOR-RANKED: SILVER2 # Have to give the config name, not the full name
+#
+# Chat settings
+CHAT:
+  SERVER-CHAT-ENABLED: true
+  ISOLATE-MATCH-CHAT: true # If true, active match/FFA players only see messages from fighters in their own ongoing fight.
+  SHOW-MATCH-CHAT-TO-SPECTATORS: true # If true, match spectators also see chat from the fighters they watch.
+  PARTY-CHAT:
+    ENABLED: true
+    SHORTCUT: '@' # Prefix a message with this symbol to send it to your party once. Use /party chat to toggle party chat mode. Set to "" or false to disable the shortcut.
+  STAFF-CHAT:
+    ENABLED: true
+    SHORTCUT: true # If true, you can use send message like #hello world instead of enabling staff chat each time.
+  PRIVATE-CHAT-ENABLED: true # Private message system /message (/m) and /reply (/re, /r).
+
+UPDATE-CHECKER:
+  ENABLED: false # Checks for a newer plugin release on startup.
+
+DEBUG:
+  ACTIONBAR:
+    ENABLED: false # Enables detailed action-bar lifecycle logs and in-memory history.
+    TARGETS:
+      # Optional player-name list. Empty = all players.
+      []
