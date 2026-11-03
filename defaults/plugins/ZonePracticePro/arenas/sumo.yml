@@ -1,0 +1,54 @@
+name: sumo
+type: BASIC
+enabled: true
+ladderTypes:
+- SUMO
+ladders:
+- Sumo
+allowCustomKitOnMap: true
+sideBuildLimit: 0
+static-border: false
+time: DEFAULT
+weather: DEFAULT
+icon:
+  ==: org.bukkit.inventory.ItemStack
+  DataVersion: 5023
+  id: minecraft:lead
+  count: 1
+  components:
+    minecraft:custom_name: '{color:"yellow",italic:0b,text:"Sumo"}'
+  schema_version: 1
+corner:
+  '1':
+    ==: org.bukkit.Location
+    world_key: minecraft:arenas
+    x: 983.0
+    y: 90.0
+    z: -17.0
+    pitch: 0.0
+    yaw: 0.0
+  '2':
+    ==: org.bukkit.Location
+    world_key: minecraft:arenas
+    x: 1017.0
+    y: 130.0
+    z: 17.0
+    pitch: 0.0
+    yaw: 0.0
+position:
+  '1':
+    ==: org.bukkit.Location
+    world_key: minecraft:arenas
+    x: 997.5
+    y: 101.0
+    z: 0.5
+    pitch: 0.0
+    yaw: -90.0
+  '2':
+    ==: org.bukkit.Location
+    world_key: minecraft:arenas
+    x: 1003.5
+    y: 101.0
+    z: 0.5
+    pitch: 0.0
+    yaw: 90.0
