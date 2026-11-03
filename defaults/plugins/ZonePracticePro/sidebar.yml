@@ -1,0 +1,987 @@
+VERSION: 7
+
+TITLE: <gold><b>PRACTICE
+
+# Start a line with <center> to center it on the sidebar, e.g. "<center><gold>%player%".
+# Centering is computed after placeholders are filled in, relative to the widest line.
+
+# Controls how player names are displayed in the sidebar.
+# Options:
+#   NAME_ONLY            - Just the player name (no prefix, no suffix)
+#   PREFIX_NAME          - Prefix + Name (no suffix)
+#   NAME_SUFFIX          - Name + Suffix (no prefix)
+#   PREFIX_NAME_SUFFIX   - Full format: Prefix + Name + Suffix (default)
+SIDEBAR-NAME-FORMAT: NAME_SUFFIX
+LOBBY:
+  NORMAL:
+  - <gray><st>---------------------
+  - '<white>Online: <gold>%onlinePlayers%'
+  - '<white>In Fights: <gold>%inFightPlayers%'
+  - '<white>In Queue: <gold>%inQueuePlayer%'
+  - ''
+  - '<white>Division: %division%'
+  - ''
+  - <gold>play.example.net
+  - <gray><st>---------------------
+  PARTY:
+  - <gray><st>---------------------
+  - '<white>Online: <gold>%onlinePlayers%'
+  - '<white>In Fights: <gold>%inFightPlayers%'
+  - '<white>In Queue: <gold>%inQueuePlayer%'
+  - ''
+  - <gold>play.example.net
+  - <gray><st>---------------------
+  - <gold>Party
+  - '<white>Leader: <gold>%partyLeaderNameOnly%'
+  - '<white>Members: <gold>%maxMember%<gray>/<yellow>%members%'
+  - <gray><st>---------------------
+  DUEL-QUEUE:
+  - <gray><st>---------------------
+  - '<white>Online: <gold>%onlinePlayers%'
+  - '<white>In Fights: <gold>%inFightPlayers%'
+  - '<white>In Queue: <gold>%inQueuePlayer%'
+  - <gray><st>---------------------
+  - '%weightClass% %ladderDisplayName%'
+  - '<white>Time: <gold>%elapsedTime%'
+  - ''
+  - <gold>play.example.net
+  - <gray><st>---------------------
+  DUEL-QUEUE-MULTI:
+  - <gray><st>---------------------
+  - '<white>Online: <gold>%onlinePlayers%'
+  - '<white>In Fights: <gold>%inFightPlayers%'
+  - '<white>In Queue: <gold>%inQueuePlayer%'
+  - <gray><st>---------------------
+  - '%weightClass% %multiQueueLabel%'
+  - '%multiQueueCurrentLadder%'
+  - '<white>Time: <gold>%elapsedTime%'
+  - ''
+  - <gold>play.example.net
+  - <gray><st>---------------------
+  CUSTOM-KIT-QUEUE:
+    HOSTING:
+    - <gray><st>---------------------
+    - '<white>Online: <gold>%onlinePlayers%'
+    - '<white>In Fights: <gold>%inFightPlayers%'
+    - '<white>In Queue: <gold>%inQueuePlayer%'
+    - <gray><st>---------------------
+    - <gold>Custom Kit Host
+    - '<white>Kit: <gold>%ladderDisplayName%'
+    - '<white>Time: <gold>%elapsedTime%'
+    - ''
+    - <gold>play.example.net
+    - <gray><st>---------------------
+    JOIN-SEARCH:
+    - <gray><st>---------------------
+    - '<white>Online: <gold>%onlinePlayers%'
+    - '<white>In Fights: <gold>%inFightPlayers%'
+    - '<white>In Queue: <gold>%inQueuePlayer%'
+    - <gray><st>---------------------
+    - <gold>Custom Kit Queue
+    - '<white>Searching: <gold>%ladderDisplayName%'
+    - '<white>Time: <gold>%elapsedTime%'
+    - ''
+    - <gold>play.example.net
+    - <gray><st>---------------------
+  EVENT-QUEUE:
+    IDLE:
+    - <gray><st>---------------------
+    - <gold>Event Queue
+    - ''
+    - '<white>Event: <gold>%eventName%'
+    - '<white>Players: <gold>%maxPlayer%<gray>/<yellow>%player%'
+    - ''
+    - <gold>play.example.net
+    - <gray><st>---------------------
+    STARTING:
+    - <gray><st>---------------------
+    - <gold>Event Queue
+    - ''
+    - '<white>Event: <gold>%eventName%'
+    - '<white>Players: <gold>%maxPlayer%<gray>/<yellow>%player%'
+    - ''
+    - '<white>Starting in: <gold>%timeLeft%'
+    - ''
+    - <gold>play.example.net
+    - <gray><st>---------------------
+
+########################################################################
+# Available variables in every case:
+# %arena% - Display name of the arena
+# %ladder% - Display name of the ladder
+########################################################################
+MATCH:
+  ROUND-SYMBOL: ⬤
+  ROUND-SYMBOL-MAX-ROUNDS: 3 # If wins-needed is above this, show rounds as won/total instead of repeated symbols.
+  BED-STATUS:
+    NOT-DESTROYED: <green>✓
+    DESTROYED: <red>✗
+  # Basic sidebars if the ladder doesn't have a special one
+  # Duel lines also support %your_player_head% and %enemy_player_head%.
+  DUEL:
+  - <gray><st>---------------------
+  - <gold><b>Info
+  - '  <white>Fighting: <yellow>%enemyNameOnly%'
+  - '  <white>Duration: <yellow>%roundDuration%'
+  - '  <white>Ping: <green>%ping%<gray>ms | <red>%enemyPing%<gray>ms'
+  - ''
+  - <gold>play.example.net
+  - <gray><st>---------------------
+  PARTY_FFA:
+  - <gray><st>---------------------
+  - <gold><b>Info
+  - '  <white>Players: <gold>%players%<gray>/<yellow>%alivePlayers%'
+  - '  <white>Duration: <yellow>%roundDuration%'
+  - '  <white>Ping: <green>%ping% ms'
+  - ''
+  - <gold>play.example.net
+  - <gray><st>---------------------
+  PARTY_SPLIT:
+  - <gray><st>---------------------
+  - <gold><b>Info
+  - '  <white>Duration: <yellow>%roundDuration%'
+  - '  <white>Ping: <green>%ping% ms'
+  - ''
+  - ' %team1name%<gray>: %team1color%%team1players%<gray>/<green>%team1alivePlayers%'
+  - ' %team2name%<gray>: %team2color%%team2players%<gray>/<green>%team2alivePlayers%'
+  - ''
+  - <gold>play.example.net
+  - <gray><st>---------------------
+  PARTY_VS_PARTY:
+  - <gray><st>---------------------
+  - <gold><b>Info
+  - '  <white>Duration: <yellow>%roundDuration%'
+  - '  <white>Ping: <green>%ping% ms'
+  - ''
+  - ' %partyTeamName%<gray>: %partyTeamColor%%partyTeamPlayers%<gray>/<green>%partyTeamAlivePlayers%'
+  - ' %enemyTeamName%<gray>: %enemyTeamColor%%enemyTeamPlayers%<gray>/<green>%enemyTeamAlivePlayers%'
+  - ''
+  - <gold>play.example.net
+  - <gray><st>---------------------
+  ###############################
+  # Here you can set the sidebar for
+  # specific ladders.
+  ###############################
+  LADDER:
+    SUMO:
+      DUEL:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Fighting: <yellow>%enemyNameOnly%'
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping%<gray>ms | <red>%enemyPing%<gray>ms'
+      - ''
+      - ' <green>Won: %playerTeamColor%%rounds%'
+      - ' <red>Lost: %enemyTeamColor%%enemyRounds%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+    PEARLFIGHT:
+      DUEL:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Fighting: <yellow>%enemyNameOnly%'
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping%<gray>ms | <red>%enemyPing%<gray>ms'
+      - ''
+      - ' <green>Won: %playerTeamColor%%rounds%'
+      - ' <red>Lost: %enemyTeamColor%%enemyRounds%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+      PARTY_FFA:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Players: <gold>%players%<gray>/<yellow>%alivePlayers%'
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping% ms'
+      - ''
+      - ' <gray>1. <white>%player1% <yellow>%player1rounds%'
+      - ' <gray>2. <white>%player2% <yellow>%player2rounds%'
+      - ' <gray>3. <white>%player3% <yellow>%player3rounds%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+      PARTY_SPLIT:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping% ms'
+      - ''
+      - ' %team1name%<gray>: %team1color%%team1players%<gray>/<green>%team1alivePlayers% %team1color%%team1rounds%'
+      - ' %team2name%<gray>: %team2color%%team2players%<gray>/<green>%team2alivePlayers% %team2color%%team2rounds%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+      PARTY_VS_PARTY:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping% ms'
+      - ''
+      - ' %partyTeamName%<gray>: %partyTeamColor%%partyTeamPlayers%<gray>/<green>%partyTeamAlivePlayers% %partyTeamColor%%partyTeamRounds%'
+      - ' %enemyTeamName%<gray>: %enemyTeamColor%%enemyTeamPlayers%<gray>/<green>%enemyTeamAlivePlayers% %enemyTeamColor%%enemyTeamRounds%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+    BOXING:
+      DUEL:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Fighting: <yellow>%enemyNameOnly%'
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping%<gray>ms | <red>%enemyPing%<gray>ms'
+      - ''
+      - '<white>Hits: %overAllHits%'
+      - ' %playerTeamColor%%player%: <white>%hits%'
+      - ' %enemyTeamColor%%enemyName%: <white>%enemyHits%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+      PARTY_FFA:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Players: <gold>%players%<gray>/<yellow>%alivePlayers%'
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping% ms'
+      - ''
+      - ' <gray>1. <white>%player1boxing%: <yellow>%player1boxingHits%'
+      - ' <gray>2. <white>%player2boxing%: <yellow>%player2boxingHits%'
+      - ' <gray>3. <white>%player3boxing%: <yellow>%player3boxingHits%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+      PARTY_SPLIT:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping% ms'
+      - ''
+      - ' %team1name%: <white>%team1boxingHits%'
+      - ' %team2name%: <white>%team2boxingHits%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+      PARTY_VS_PARTY:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping% ms'
+      - ''
+      - ' %partyTeamName%: <white>%partyTeamBoxingHits%'
+      - ' %enemyTeamName%: <white>%enemyTeamBoxingHits%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+    BEDWARS:
+      DUEL:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Fighting: <yellow>%enemyNameOnly%'
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping%<gray>ms | <red>%enemyPing%<gray>ms'
+      - ''
+      - ' %playerTeamName%: %playerBedStatus% <gray>YOU'
+      - ' %enemyTeamName%: %enemyBedStatus%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+      PARTY_SPLIT:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping% ms'
+      - ''
+      - ' %team1name%: %team1BedStatus%'
+      - ' %team2name%: %team2BedStatus%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+      PARTY_VS_PARTY:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping% ms'
+      - ''
+      - ' %partyTeamName%: %partyTeamBedStatus%'
+      - ' %enemyTeamName%: %enemyTeamBedStatus%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+    FIREBALL:
+      DUEL:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Fighting: <yellow>%enemyNameOnly%'
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping%<gray>ms | <red>%enemyPing%<gray>ms'
+      - ''
+      - ' %playerTeamName%: %playerBedStatus% <gray>YOU'
+      - ' %enemyTeamName%: %enemyBedStatus%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+      PARTY_SPLIT:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping% ms'
+      - ''
+      - ' %team1name%: %team1BedStatus%'
+      - ' %team2name%: %team2BedStatus%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+      PARTY_VS_PARTY:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping% ms'
+      - ''
+      - ' %partyTeamName%: %partyTeamBedStatus%'
+      - ' %enemyTeamName%: %enemyTeamBedStatus%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+    BRIDGES:
+      DUEL:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Fighting: <yellow>%enemyNameOnly%'
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping%<gray>ms | <red>%enemyPing%<gray>ms'
+      - ''
+      - ' <green>Won: %playerTeamColor%%rounds%'
+      - ' <red>Lost: %enemyTeamColor%%enemyRounds%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+      PARTY_SPLIT:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping% ms'
+      - ''
+      - ' %team1name%<gray>: %team1color%%team1players%<gray>/<green>%team1alivePlayers% %team1color%%team1rounds%'
+      - ' %team2name%<gray>: %team2color%%team2players%<gray>/<green>%team2alivePlayers% %team2color%%team2rounds%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+      PARTY_VS_PARTY:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping% ms'
+      - ''
+      - ' %partyTeamName%<gray>: %partyTeamColor%%partyTeamPlayers%<gray>/<green>%partyTeamAlivePlayers% %partyTeamColor%%partyTeamRounds%'
+      - ' %enemyTeamName%<gray>: %enemyTeamColor%%enemyTeamPlayers%<gray>/<green>%enemyTeamAlivePlayers% %enemyTeamColor%%enemyTeamRounds%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+    MLGRUSH:
+      DUEL:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Fighting: <yellow>%enemyNameOnly%'
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping%<gray>ms | <red>%enemyPing%<gray>ms'
+      - ''
+      - ' <green>Won: %playerTeamColor%%rounds%'
+      - ' <red>Lost: %enemyTeamColor%%enemyRounds%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+      PARTY_SPLIT:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping% ms'
+      - ''
+      - ' %team1name%<gray>: %team1color%%team1players%<gray>/<green>%team1alivePlayers% %team1color%%team1rounds%'
+      - ' %team2name%<gray>: %team2color%%team2players%<gray>/<green>%team2alivePlayers% %team2color%%team2rounds%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+      PARTY_VS_PARTY:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping% ms'
+      - ''
+      - ' %partyTeamName%<gray>: %partyTeamColor%%partyTeamPlayers%<gray>/<green>%partyTeamAlivePlayers% %partyTeamColor%%partyTeamRounds%'
+      - ' %enemyTeamName%<gray>: %enemyTeamColor%%enemyTeamPlayers%<gray>/<green>%enemyTeamAlivePlayers% %enemyTeamColor%%enemyTeamRounds%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+    BATTLERUSH:
+      DUEL:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Fighting: <yellow>%enemyNameOnly%'
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping%<gray>ms | <red>%enemyPing%<gray>ms'
+      - ''
+      - ' <green>Won: %playerTeamColor%%rounds%'
+      - ' <red>Lost: %enemyTeamColor%%enemyRounds%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+      PARTY_SPLIT:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping% ms'
+      - ''
+      - ' %team1name%<gray>: %team1color%%team1players%<gray>/<green>%team1alivePlayers% %team1color%%team1rounds%'
+      - ' %team2name%<gray>: %team2color%%team2players%<gray>/<green>%team2alivePlayers% %team2color%%team2rounds%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+      PARTY_VS_PARTY:
+      - <gray><st>---------------------
+      - <gold><b>Info
+      - '  <white>Duration: <yellow>%roundDuration%'
+      - '  <white>Ping: <green>%ping% ms'
+      - ''
+      - ' %partyTeamName%<gray>: %partyTeamColor%%partyTeamPlayers%<gray>/<green>%partyTeamAlivePlayers% %partyTeamColor%%partyTeamRounds%'
+      - ' %enemyTeamName%<gray>: %enemyTeamColor%%enemyTeamPlayers%<gray>/<green>%enemyTeamAlivePlayers% %enemyTeamColor%%enemyTeamRounds%'
+      - ''
+      - <gold>play.example.net
+      - <gray><st>---------------------
+EVENT:
+  LMS:
+  - <gray><st>---------------------
+  - <gold>Last Man Standing
+  - ''
+  - '<white>Alive: <gold>%players%<gray>/<yellow>%alivePlayers% players'
+  - '<white>Duration: <gold>%duration%'
+  - <gray><st>---------------------
+  OITC:
+  - <gray><st>---------------------
+  - <gold>One In The Chamber
+  - ''
+  - '<white>Highest Point:'
+  - '<gold>%topPlayer% : <yellow>%topScore%'
+  - ''
+  - '<white>Lives: <green>%lives%'
+  - ''
+  - '<white>Alive: <gold>%players%<gray>/<yellow>%alivePlayers% players'
+  - '<white>Duration: <gold>%duration%'
+  - <gray><st>---------------------
+  TNTTAG:
+  - <gray><st>---------------------
+  - <gold>TNT Tag
+  - ''
+  - <white>Explosion in <gold>%explosionTime%s
+  - ''
+  - '<white>Alive: <gold>%alivePlayers% players'
+  - <gray><st>---------------------
+  BRACKETS:
+  - <gray><st>---------------------
+  - <gold>Brackets
+  - ''
+  - '<red>Enemy: <white>%enemy%'
+  - ''
+  - '<white>Alive: <gold>%players%<gray>/<yellow>%alivePlayers% players'
+  - '<white>Time Left: <gold>%timeLeft%'
+  - ''
+  - '<gray>Round #%round%'
+  - <gray><st>---------------------
+  SUMO:
+  - <gray><st>---------------------
+  - <gold>Sumo
+  - ''
+  - '<red>Enemy: <white>%enemy%'
+  - ''
+  - '<white>Alive: <gold>%players%<gray>/<yellow>%alivePlayers% players'
+  - '<white>Time Left: <gold>%timeLeft%'
+  - ''
+  - '<gray>Round #%round%'
+  - <gray><st>---------------------
+  SPLEGG:
+  - <gray><st>---------------------
+  - <gold>Splegg
+  - ''
+  - '<white>Alive: <gold>%players%<gray>/<yellow>%alivePlayers% players'
+  - '<white>Time Left: <gold>%timeLeft%'
+  - ''
+  - '<white>Eggs fired: <gold>%firedEggs%'
+  - '<white>Blocks broken: <gold>%brokenBlocks%'
+  - <gray><st>---------------------
+  JUGGERNAUT:
+  - <gray><st>---------------------
+  - <gold>Juggernaut
+  - ''
+  - '<white>Alive: <gold>%players%<gray>/<yellow>%alivePlayers% players'
+  - '<white>Duration: <gold>%duration%'
+  - <gray><st>---------------------
+
+FFA:
+  GAME: # Other placeholders: %ping%
+    BUILD:
+    - <gray><st>---------------------
+    - <gold><b>FFA Info
+    - '  <white>Player: <yellow>%players%'
+    - '  <white>Next Reset: <yellow>%nextReset%'
+    - ''
+    - '  <white>K<gray>/<white>D: <green>%kills%<gray>/<red>%deaths%'
+    - ''
+    - '  <white>Ladder: <green>%ladder%'
+    - '  <white>Arena: <green>%arena%'
+    - ''
+    - <gold>play.example.net
+    - <gray><st>---------------------
+    NON-BUILD:
+    - <gray><st>---------------------
+    - <gold><b>FFA Info
+    - '  <white>Player: <yellow>%players%'
+    - '  <white>Spectators: <yellow>%spectators%'
+    - ''
+    - '  <white>K<gray>/<white>D: <green>%kills%<gray>/<red>%deaths%'
+    - ''
+    - '  <white>Ladder: <green>%ladder%'
+    - '  <white>Arena: <green>%arena%'
+    - ''
+    - <gold>play.example.net
+    - <gray><st>---------------------
+  SPECTATE:
+    BUILD:
+    - <gray><st>---------------------
+    - <gold><b>FFA Info
+    - '  <white>Player: <yellow>%players%'
+    - '  <white>Spectators: <yellow>%spectators%'
+    - '  <white>Next Reset: <yellow>%nextReset%'
+    - ''
+    - '  <white>Ladders: <green>%ladder%'
+    - '  <white>Arena: <green>%arena%'
+    - ''
+    - <gold>play.example.net
+    - <gray><st>---------------------
+    NON-BUILD:
+    - <gray><st>---------------------
+    - <gold><b>FFA Info
+    - '  <white>Player: <yellow>%players%'
+    - '  <white>Spectators: <yellow>%spectators%'
+    - ''
+    - '  <white>Ladders: <green>%ladder%'
+    - '  <white>Arena: <green>%arena%'
+    - ''
+    - <gold>play.example.net
+    - <gray><st>---------------------
+
+SPECTATE:
+  MATCH:
+    DUEL:
+    - <gray><st>---------------------
+    - <gold><b>Info
+    - '  <white>Kit: <yellow>%ladder%'
+    - '  <white>Arena: <yellow>%arena%'
+    - '  <white>Duration: <yellow>%roundDuration%'
+    - ''
+    - <gold>play.example.net
+    - <gray><st>---------------------
+    PARTY_FFA:
+    - <gray><st>---------------------
+    - <gold><b>Info
+    - '  <white>Kit: <yellow>%ladder%'
+    - '  <white>Arena: <yellow>%arena%'
+    - '  <white>Duration: <yellow>%roundDuration%'
+    - ''
+    - '  <white>Players: <gold>%players%<gray>/<yellow>%alivePlayers%'
+    - ''
+    - <gold>play.example.net
+    - <gray><st>---------------------
+    PARTY_SPLIT:
+    - <gray><st>---------------------
+    - <gold><b>Info
+    - '  <white>Kit: <yellow>%ladder%'
+    - '  <white>Arena: <yellow>%arena%'
+    - '  <white>Duration: <yellow>%roundDuration%'
+    - ''
+    - ' %team1name%<gray>: %team1color%%team1players%<gray>/<green>%team1alivePlayers%'
+    - ' %team2name%<gray>: %team2color%%team2players%<gray>/<green>%team2alivePlayers%'
+    - ''
+    - <gold>play.example.net
+    - <gray><st>---------------------
+    PARTY_VS_PARTY:
+    - <gray><st>---------------------
+    - <gold><b>Info
+    - '  <white>Kit: <yellow>%ladder%'
+    - '  <white>Arena: <yellow>%arena%'
+    - '  <white>Duration: <yellow>%roundDuration%'
+    - ''
+    - ' %team1name%<gray>: %team1color%%team1players%<gray>/<green>%team1alivePlayers%'
+    - ' %team2name%<gray>: %team2color%%team2players%<gray>/<green>%team2alivePlayers%'
+    - ''
+    - <gold>play.example.net
+    - <gray><st>---------------------
+    LADDER:
+      SUMO:
+        DUEL:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1color%%player1rounds% <gray>| %team2color%%player2rounds%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+      PEARLFIGHT:
+        DUEL:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1color%%player1rounds% <gray>| %team2color%%player2rounds%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+        PARTY_FFA:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' <gray>1. <white>%player1% <yellow>%player1rounds%'
+        - ' <gray>2. <white>%player2% <yellow>%player2rounds%'
+        - ' <gray>3. <white>%player3% <yellow>%player3rounds%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+        PARTY_SPLIT:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1name%<gray>: %team1color%%team1players%<gray>/<green>%team1alivePlayers% %team1color%%team1rounds%'
+        - ' %team2name%<gray>: %team2color%%team2players%<gray>/<green>%team2alivePlayers% %team2color%%team2rounds%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+        PARTY_VS_PARTY:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1name%<gray>: %team1color%%team1players%<gray>/<green>%team1alivePlayers% %team1color%%team1rounds%'
+        - ' %team2name%<gray>: %team2color%%team2players%<gray>/<green>%team2alivePlayers% %team2color%%team2rounds%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+      BOXING:
+        DUEL:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1color%%player1%: <white>%player1hits%'
+        - ' %team2color%%player2%: <white>%player2hits%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+        PARTY_FFA:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' <gray>1. <white>%player1boxing%: <yellow>%player1boxingHits%'
+        - ' <gray>2. <white>%player2boxing%: <yellow>%player2boxingHits%'
+        - ' <gray>3. <white>%player3boxing%: <yellow>%player3boxingHits%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+        PARTY_SPLIT:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1name%: <white>%team1boxingHits%'
+        - ' %team2name%: <white>%team2boxingHits%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+        PARTY_VS_PARTY:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1name%: <white>%team1boxingHits%'
+        - ' %team2name%: <white>%team2boxingHits%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+      BEDWARS:
+        DUEL:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %player1NameOnly%: %player1BedStatus%'
+        - ' %player2NameOnly%: %player2BedStatus%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+        PARTY_SPLIT:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1name%: %team1BedStatus%'
+        - ' %team2name%: %team2BedStatus%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+        PARTY_VS_PARTY:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1name%: %team1BedStatus%'
+        - ' %team2name%: %team2BedStatus%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+      FIREBALL:
+        DUEL:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %player1NameOnly%: %player1BedStatus%'
+        - ' %player2NameOnly%: %player2BedStatus%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+        PARTY_SPLIT:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1name%: %team1BedStatus%'
+        - ' %team2name%: %team2BedStatus%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+        PARTY_VS_PARTY:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1name%: %team1BedStatus%'
+        - ' %team2name%: %team2BedStatus%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+      BRIDGES:
+        DUEL:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1color%%player1rounds% <gray>| %team2color%%player2rounds%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+        PARTY_SPLIT:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1name%<gray>: %team1color%%team1players%<gray>/<green>%team1alivePlayers% %team1color%%team1rounds%'
+        - ' %team2name%<gray>: %team2color%%team2players%<gray>/<green>%team2alivePlayers% %team2color%%team2rounds%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+        PARTY_VS_PARTY:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1name%<gray>: %team1color%%team1players%<gray>/<green>%team1alivePlayers% %team1color%%team1rounds%'
+        - ' %team2name%<gray>: %team2color%%team2players%<gray>/<green>%team2alivePlayers% %team2color%%team2rounds%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+      MLGRUSH:
+        DUEL:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1color%%player1rounds% <gray>| %team2color%%player2rounds%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+        PARTY_SPLIT:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1name%<gray>: %team1color%%team1players%<gray>/<green>%team1alivePlayers% %team1color%%team1rounds%'
+        - ' %team2name%<gray>: %team2color%%team2players%<gray>/<green>%team2alivePlayers% %team2color%%team2rounds%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+        PARTY_VS_PARTY:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1name%<gray>: %team1color%%team1players%<gray>/<green>%team1alivePlayers% %team1color%%team1rounds%'
+        - ' %team2name%<gray>: %team2color%%team2players%<gray>/<green>%team2alivePlayers% %team2color%%team2rounds%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+      BATTLERUSH:
+        DUEL:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1color%%player1rounds% <gray>| %team2color%%player2rounds%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+        PARTY_SPLIT:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1name%<gray>: %team1color%%team1players%<gray>/<green>%team1alivePlayers% %team1color%%team1rounds%'
+        - ' %team2name%<gray>: %team2color%%team2players%<gray>/<green>%team2alivePlayers% %team2color%%team2rounds%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+        PARTY_VS_PARTY:
+        - <gray><st>---------------------
+        - <gold><b>Info
+        - '  <white>Kit: <yellow>%ladder%'
+        - '  <white>Arena: <yellow>%arena%'
+        - '  <white>Duration: <yellow>%roundDuration%'
+        - ''
+        - ' %team1name%<gray>: %team1color%%team1players%<gray>/<green>%team1alivePlayers% %team1color%%team1rounds%'
+        - ' %team2name%<gray>: %team2color%%team2players%<gray>/<green>%team2alivePlayers% %team2color%%team2rounds%'
+        - ''
+        - <gold>play.example.net
+        - <gray><st>---------------------
+  EVENT:
+    LMS:
+    - <gray><st>---------------------
+    - <gold>Last Man Standing
+    - ''
+    - '<white>Alive: <gold>%players%<gray>/<yellow>%alivePlayers% players'
+    - '<white>Duration: <gold>%duration%'
+    - <gray><st>---------------------
+    OITC:
+    - <gray><st>---------------------
+    - <gold>One In The Chamber
+    - ''
+    - '<white>Highest Point:'
+    - '<gold>%topPlayer% + : <yellow>%topScore%'
+    - ''
+    - '<white>Alive: <gold>%players%<gray>/<yellow>%alivePlayers% players'
+    - '<white>Duration: <gold>%duration%'
+    - <gray><st>---------------------
+    TNTTAG:
+    - <gray><st>---------------------
+    - <gold>TNT Tag
+    - ''
+    - <white>Explosion in <gold>%explosionTime%s
+    - ''
+    - '<white>Alive: <gold>%alivePlayers% players'
+    - <gray><st>---------------------
+    BRACKETS:
+    - <gray><st>---------------------
+    - <gold>Brackets
+    - ''
+    - '<white>Alive: <gold>%players%<gray>/<yellow>%alivePlayers% players'
+    - '<white>Time Left: <gold>%timeLeft%'
+    - ''
+    - '<gray>Round #%round%'
+    - <gray><st>---------------------
+    SUMO:
+    - <gray><st>---------------------
+    - <gold>Sumo
+    - ''
+    - '<white>Alive: <gold>%players%<gray>/<yellow>%alivePlayers% players'
+    - '<white>Time Left: <gold>%timeLeft%'
+    - ''
+    - '<gray>Round #%round%'
+    - <gray><st>---------------------
+    SPLEGG:
+    - <gray><st>---------------------
+    - <gold>Splegg
+    - ''
+    - '<white>Alive: <gold>%players%<gray>/<yellow>%alivePlayers% players'
+    - '<white>Time Left: <gold>%timeLeft%'
+    - <gray><st>---------------------
+    JUGGERNAUT:
+    - <gray><st>---------------------
+    - <gold>Juggernaut
+    - ''
+    - '<white>Alive: <gold>%players%<gray>/<yellow>%alivePlayers% players'
+    - '<white>Duration: <gold>%duration%'
+    - <gray><st>---------------------
+
+ADMIN-EXTENSION: # Permission: zpp.admin.scoreboard
+  - '<white>TPS: <gold>%tps%'
+  - '<white>Arenas: <gold>%arenas%<gray>/<yellow>%enabledArenas%'
+  - <gray><st>---------------------
+
+#
+# First you have to set up the groups in the config.yml
+# You can add/remove groups to this list
+# The extension will always be added at the end of the sidebar.
+#
+GROUP-EXTENSIONS:
+  PREMIUM:
+  - '<white>Rank: <red>Premium'
+  - <gray><st>---------------------
+  SUPREME:
+  - '<white>Rank: <gold>Supreme'
+  - <gray><st>---------------------
