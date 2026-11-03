@@ -1,0 +1,15 @@
+services:
+  practice:
+    build: .
+    container_name: practice
+    ports:
+      - "25565:25565"
+    environment:
+      # you have to accept the Minecraft EULA yourself: https://aka.ms/MinecraftEULA
+      EULA: "false"
+      MEMORY: 4G
+    volumes:
+      - ./server:/opt/practice/server
+    stdin_open: true   # lets you type console commands after `docker attach practice`
+    tty: true
+    restart: unless-stopped
