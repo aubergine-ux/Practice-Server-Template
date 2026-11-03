@@ -1,4 +1,6 @@
 schedule clear practice:maps/colosseum/wait
+execute if score #colosseum practice.setup matches 1 run return fail
+scoreboard players set #colosseum practice.setup 1
 execute in minecraft:arenas run function practice:maps/colosseum/blocks
 execute in minecraft:arenas run forceload remove -35 -25 35 25
 execute in minecraft:arenas run gamerule advance_time false

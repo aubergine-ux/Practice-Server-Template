@@ -1,4 +1,6 @@
 schedule clear practice:maps/grove/wait
+execute if score #grove practice.setup matches 1 run return fail
+scoreboard players set #grove practice.setup 1
 execute in minecraft:arenas run function practice:maps/grove/blocks
 execute in minecraft:arenas run forceload remove 165 -20 235 20
 execute in minecraft:arenas run gamerule advance_time false

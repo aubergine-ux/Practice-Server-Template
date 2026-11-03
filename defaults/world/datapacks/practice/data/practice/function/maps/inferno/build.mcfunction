@@ -1,4 +1,6 @@
 schedule clear practice:maps/inferno/wait
+execute if score #inferno practice.setup matches 1 run return fail
+scoreboard players set #inferno practice.setup 1
 execute in minecraft:arenas run function practice:maps/inferno/blocks
 execute in minecraft:arenas run forceload remove 365 -20 435 20
 execute in minecraft:arenas run gamerule advance_time false

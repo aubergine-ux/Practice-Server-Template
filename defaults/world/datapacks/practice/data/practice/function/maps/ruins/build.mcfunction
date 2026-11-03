@@ -1,4 +1,6 @@
 schedule clear practice:maps/ruins/wait
+execute if score #ruins practice.setup matches 1 run return fail
+scoreboard players set #ruins practice.setup 1
 execute in minecraft:arenas run function practice:maps/ruins/blocks
 execute in minecraft:arenas run forceload remove 765 -20 835 20
 execute in minecraft:arenas run gamerule advance_time false

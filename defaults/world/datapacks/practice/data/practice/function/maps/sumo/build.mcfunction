@@ -1,4 +1,6 @@
 schedule clear practice:maps/sumo/wait
+execute if score #sumo practice.setup matches 1 run return fail
+scoreboard players set #sumo practice.setup 1
 execute in minecraft:arenas run function practice:maps/sumo/blocks
 execute in minecraft:arenas run forceload remove 983 -17 1017 17
 execute in minecraft:arenas run gamerule advance_time false

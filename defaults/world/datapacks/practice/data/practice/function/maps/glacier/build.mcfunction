@@ -1,4 +1,6 @@
 schedule clear practice:maps/glacier/wait
+execute if score #glacier practice.setup matches 1 run return fail
+scoreboard players set #glacier practice.setup 1
 execute in minecraft:arenas run function practice:maps/glacier/blocks
 execute in minecraft:arenas run forceload remove 565 -20 635 20
 execute in minecraft:arenas run gamerule advance_time false
