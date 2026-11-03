@@ -21,7 +21,6 @@ always_enabled_modules:
   - "fishing-rod-velocity"
   - "projectile-knockback"
   - "disable-crafting"
-  - "update-checker"
   - "old-brewing-stand"
   - "disable-enderpearl-cooldown"
 
@@ -29,8 +28,8 @@ disabled_modules:
   # Modules listed here are always disabled, regardless of modeset.
   # Of course, disabling a module which disables something will enable that something!
   - "disable-offhand"
-  - "disable-sword-sweep-particles"
-  - "disable-attack-sounds"
+  - "old-player-knockback"
+  - "update-checker"
   - "chorus-fruit"
   - "old-burn-delay"
   - "attack-range"
@@ -73,8 +72,6 @@ modesets:
     - "old-potion-effects"
     - "old-potion-throwing"
     - "old-critical-hits"
-    - "old-fishing-knockback"
-    - "projectile-knockback"
     - "disable-attack-sounds"
     - "disable-sword-sweep-particles"
   new:
