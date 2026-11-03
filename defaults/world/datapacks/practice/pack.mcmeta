@@ -1,6 +1,6 @@
 {
   "pack": {
-    "description": "practice-server-template: first boot world setup",
+    "description": "practice-server-template: builds the lobby and arenas on first boot",
     "min_format": 121,
     "max_format": 999
   }

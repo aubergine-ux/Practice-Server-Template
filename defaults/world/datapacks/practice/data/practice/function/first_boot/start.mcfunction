@@ -11,7 +11,4 @@ gamerule immediate_respawn true
 gamerule respawn_radius 0
 time set 6000
 weather clear
-
-# Spawn chunk isn't loaded yet at this point, so load it and build once it's ready
-forceload add -8 -8 8 8
-schedule function practice:first_boot/platform 20t
+function practice:maps/lobby/start
