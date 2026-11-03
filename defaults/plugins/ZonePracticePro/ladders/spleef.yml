@@ -1,0 +1,57 @@
+name: Spleef
+enabled: false
+type: SPLEEF
+settings:
+  regen: true
+  hunger: false
+  weightClass: UNRANKED_AND_RANKED
+  editable: true
+  drop-inventory: false
+  multiRoundStartCountdown: true
+  hitdelay: 1.0
+  rounds: 1
+  hearts: 10
+  maxduration: 900
+  epcooldown: 1.0
+  gacooldown: 0.0
+  fireworkcooldown: 1.0
+  windchargecooldown: 0.0
+  startcountdown: 3
+  startmove: true
+  matchtypes:
+  - DUEL
+  - PARTY_FFA
+  - PARTY_SPLIT
+  - PARTY_VS_PARTY
+  knockback: DEFAULT
+  tntfusetime: 4
+  healthbelowname: false
+  resetbuildafterround: false
+  breakallblocks: false
+  roundenddelay: 3
+  roundstatustitles: true
+  countdowntitles: true
+  spleef-snowball-mode: true
+  tntautoignite: false
+  pullplayerswithrod: true
+  itempickup: true
+  border:
+    enabled: false
+    start-delay: 120
+    shrink-duration: 120
+    final-size: 10
+    damage: 1.0
+    damage-interval: 1
+effects: []
+icon:
+  ==: org.bukkit.inventory.ItemStack
+  DataVersion: 5023
+  id: minecraft:netherite_shovel
+  count: 1
+  components:
+    minecraft:custom_name: '{color:"gold",text:"Spleef"}'
+  schema_version: 1
+armor: AQAAAAQAAAAAAAAAAAAAAAAAAAAA
+inventory: AQAAACQAAACJH4sIAAAAAAAA/1XMMQoCMRCF4adhQWKpWHgUa89gu4xxYgbNRJJZwdN4VbPVYvGqj/95wGF7JqML1yZFgd13g7XccMyiHCpFOylb4irGY0vlzU+HIZRJDcDKw4eSX0VZrXkcloo1JFLLMzjsF5j0Wpkeovd+MPwRxyhBevmZqe8Hd7w55aEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+custom-kit-extra-items:
+  unranked: AQAAABwAAACIH4sIAAAAAAAA/1XMMQoCMRCF4adhQWKpiGex9gy2MiYTd9DMSJIVPI1XNVstFq/6+J8HHLZnanThUsUU2H03WEvEMYtyKJTaKQpl03ito7356TAEm7QBWHn4YPllytqqx2FpWMNI2vIMDvsFJr0VpofovR8Mf8QpSZBefmbq+wEnvI7jnwAAAAAAAIgfiwgAAAAAAAD/VcxBCsIwEIXhp6EgcanoXVx7BrcyppN2sJmRJBU8jVc1XRUXb/XxPw847K9U6ca5iClw+O6wlR7nJMohU6yXwaae9V5Ge/Pk0AWbtQLYePhg6WXKWovHaU1Yw0ha0wIOxxVmfWSmp+jQDro/4hglSCs/C7X9AK0N1ueeAAAAAAAAhh+LCAAAAAAAAP9VzDsOwjAQhOEBKxIyJY/DUHMG2siYNVmBd5G9QeI0uWqcKqKY6tM/HnDYX4OFG5XKKsBh2mHLD5wyC8USkl24qPR10C+9HbqooxiAjYePmj8qJFY9zmtAEocglhdwOK4wyr1QeLE820H3R5QSR27lb6G2GaGG566cAAAAAAAAhB+LCAAAAAAAAP9VzDEOAjEMRNGBaCUUShCHoeYMtCgYh7UgNkq8SJyGq5KtgGKqpz8RCFgfkqcj1yamwOa9wlIu2BVRppqy75ub8qmN9uR7wEA2qQNYRESy8uio3uJvwUpjUi8zBGy/MOm5crqJXvvB8Eecs5D08jVT3wcCZmnenQAAAAAAAIcfiwgAAAAAAAD/VcwxDsIwEETRASsSMiUI7kLNGWgj46zJCryL7A2I03BVnCqimOrpjwcctudg4UKlsgqw+26w5gHHzEKxhGSnt+pA0tdRX/Rw6KJOYgBWHj5qfqqQWPU4LAlJHINYnsFhv8Ak10LhznJrB90fUUocuZWfmdp+gg7vF54AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==

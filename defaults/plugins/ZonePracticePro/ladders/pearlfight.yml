@@ -1,0 +1,55 @@
+name: PearlFight
+enabled: false
+type: PEARL_FIGHT
+settings:
+  regen: true
+  hunger: false
+  weightClass: UNRANKED_AND_RANKED
+  editable: true
+  drop-inventory: false
+  multiRoundStartCountdown: false
+  hitdelay: 1.0
+  rounds: 3
+  hearts: 10
+  maxduration: 900
+  epcooldown: 1.0
+  gacooldown: 0.0
+  fireworkcooldown: 1.0
+  windchargecooldown: 0.0
+  startcountdown: 3
+  startmove: true
+  matchtypes:
+  - DUEL
+  - PARTY_FFA
+  - PARTY_SPLIT
+  - PARTY_VS_PARTY
+  knockback: DEFAULT
+  tntfusetime: 4
+  healthbelowname: false
+  resetbuildafterround: false
+  breakallblocks: false
+  roundenddelay: 3
+  roundstatustitles: true
+  countdowntitles: true
+  temp-build-return-delay: 6
+  tntautoignite: false
+  pullplayerswithrod: true
+  itempickup: true
+  border:
+    enabled: false
+    start-delay: 120
+    shrink-duration: 120
+    final-size: 10
+    damage: 1.0
+    damage-interval: 1
+icon:
+  ==: org.bukkit.inventory.ItemStack
+  DataVersion: 5023
+  id: minecraft:ender_pearl
+  count: 1
+  components:
+    minecraft:custom_name: '{color:"gold",text:"Pearl Fight"}'
+  schema_version: 1
+armor: AQAAAAQAAABuH4sIAAAAAAAA/0XLQQ5AMBAF0I9IpJYk7mLtCmyl2hFNmJEaC6dxVGJl/fIMkKHsrNqB4hGEgeoukAaPZgtMLtpZ25WsLhTHSUSPDLmTkxVAYmCcbLsw8Qf1X/xFfnSySsTT98ALU04C6GkAAAAAAAB0H4sIAAAAAAAA/0XLMQ7CMAwF0A9VJZSOdOpROvcKYa2ixA2REhu57sBpelRgY356DugwLMHCg3QvwsD9vOFaEqZWmKKGzeZKwZ6ka6WcC+e9Qx/lYANwcXBR2kuY2H4w/ld6U1qjVFF8vAe+oAFMWGwAAAAAAAB0H4sIAAAAAAAA/0XLMQ6DMAwF0N9GlaowwshJOvcKdEWWY0SkYKPEDD1Nj1pG3v4iENC9yekjtWVToP89cc8J45ZVuNLiryLkq9SZV2m+F3IJeLAd6gBuEZFt201FvQUM10tfSTNbsYr/NAEnWjPGQm4AAAAAAAByH4sIAAAAAAAA/0XLQQ6DIBAF0F+JiaFLu/AsXfcKuCUExkACMwanC0/To9alb/8sYPD8BA0r9aMIA/NvwlASllaYYg+bvisFzdR9ptpIDcYoX1YADwsbpe3CxHoYvO6TTko+SpWOv3PABcQNx+ZqAAAA
+inventory: AQAAACQAAAB4H4sIAAAAAAAA/02MMQ6DQAwENzlFQkeJlMekzhvSRsY4yulyNjpMw2fyVaCCYquZ2QgEtE9yekmdkinQ/Rtc04CuJBWu9PFH/6NF3tWGgBvbrA7gEhHZymgq6lPE/dBF+UvqZQfh/JPVOPfEee+3rWfjAoF+AAAAAAAAUh+LCAAAAAAAAP/jYmBgZuB2SSxJDEstKs7Mz2NgEJ7PwcCUmcIgmpuZl5pclJhWYpWal5JaFF+QmliUw8zAmpxfmlfCwMDAwQAAZQyN4D4AAAAAAABNH4sIAAAAAAAA/+NiYGBm4HZJLEkMSy0qzszPY2AQns/BwJSZwiCQm5mXmlyUmFZiVZyRmlhUzMzAmpxfmlfCwMDAyAAA2pJKBTkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+extra: AQAAAAEAAABRH4sIAAAAAAAA/+NiYGBm4HZJLEkMSy0qzszPY2AQns/BwJSZwiCSm5mXmlyUmFZiVZ6RWZIaX56fn8PMwJqcX5pXwsDAIMAAAAyiTHo9AAAA

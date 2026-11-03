@@ -1,0 +1,55 @@
+name: SG
+enabled: false
+type: BUILD
+settings:
+  regen: true
+  hunger: true
+  weightClass: UNRANKED_AND_RANKED
+  editable: true
+  drop-inventory: false
+  multiRoundStartCountdown: true
+  hitdelay: 1.0
+  rounds: 1
+  hearts: 10
+  maxduration: 900
+  epcooldown: 1.0
+  gacooldown: 0.0
+  fireworkcooldown: 1.0
+  windchargecooldown: 0.0
+  startcountdown: 3
+  startmove: true
+  matchtypes:
+  - DUEL
+  - PARTY_FFA
+  - PARTY_SPLIT
+  - PARTY_VS_PARTY
+  knockback: DEFAULT
+  tntfusetime: 4
+  healthbelowname: false
+  resetbuildafterround: false
+  breakallblocks: false
+  roundenddelay: 3
+  roundstatustitles: true
+  countdowntitles: true
+  tntautoignite: false
+  pullplayerswithrod: true
+  itempickup: true
+  border:
+    enabled: false
+    start-delay: 120
+    shrink-duration: 120
+    final-size: 10
+    damage: 1.0
+    damage-interval: 1
+effects: []
+icon:
+  ==: org.bukkit.inventory.ItemStack
+  DataVersion: 5023
+  id: minecraft:flint_and_steel
+  count: 1
+  components:
+    minecraft:custom_name: '{color:"gold",text:"SG"}'
+  schema_version: 1
+armor: AQAAAAQAAABRH4sIAAAAAAAA/+NiYGBm4HZJLEkMSy0qzszPY2AQns/BwJSZwiCSm5mXmlyUmFZilVmUnxeflJ9fUszMwJqcX5pXwsDAwMgAAHGH8ik9AAAAAAAAVB+LCAAAAAAAAP/jYmBgZuB2SSxJDEstKs7Mz2NgEJ7PwcCUmcIgnpuZl5pclJhWYpVZlJ8Xn5Oanp6Zl17MzMCanF+aV8LAwMDIAACjoVW6QAAAAAAAAFYfiwgAAAAAAAD/42JgYGbgdkksSQxLLSrOzM9jYBCez8HAlJnCIJmbmZeaXJSYVmKVWZSfF5+ckVpcUpCTWJLKzMCanF+aV8LAwMDIAACaTfzKQgAAAAAAAFcfiwgAAAAAAAD/42JgYGbgdkksSQxLLSrOzM9jYBCez8HAlJnCIJWbmZeaXJSYVmKVnJGYmZebmJkTn5Gak5tawszAmpxfmlfCwMDAyAAArWFE3UMAAAA=
+inventory: AQAAACQAAABRH4sIAAAAAAAA/+NiYGBm4HZJLEkMSy0qzszPY2AQns/BwJSZwiCSm5mXmlyUmFZilVmUnxdfXJ5flMLMwJqcX5pXwsDAwMgAADX5xzg9AAAAAAAAUh+LCAAAAAAAAP/jYmBgZuB2SSxJDEstKs7Mz2NgEJ7PwcCUmcIgmpuZl5pclJhWYpWWWZyRmZceX5SfwszAmpxfmlfCwMDAyAAAWNoOyz4AAAAAAABKH4sIAAAAAAAA/+NiYGBm4HZJLEkMSy0qzszPY2AQns/BwJSZwsCbm5mXmlyUmFZilZRfzszAmpxfmlfCwMDAyAAA5CrgyzYAAAAAAABsH4sIAAAAAAAA/0XLMQqAMAwF0K9FkLoITl5FHD2Dq4Q2lYJNxcbzeFXd3N+zgEG3kNLKV4lZgOFpUUePMUVhd1HQKRxRdCPxW1Hmw6Bx+RYFUFlYl9OZhUWLQf8nT4l2/swMvKmc9HRnAAAAAAAAUx+LCAAAAAAAAP/jYmBgZuB2SSxJDEstKs7Mz2NgEJ7PwcCUmcIglpuZl5pclJhWYpWen5OSmhefWFCQk8rMwJqcX5pXwsDAwMgAAOGWs+Y/AAAAAAAAUx+LCAAAAAAAAP/jYmBgZuB2SSxJDEstKs7Mz2NgEJ7PwcCUmcIglpuZl5pclJhWYpWUmJ2aEl+QX5JYks/MwJqcX5pXwsDAwMYAAGX4T+o/AAAAAAAAAAAAAAAAAAAAAAAATB+LCAAAAAAAAP/jYmBgZuB2SSxJDEstKs7Mz2NgEJ7PwcCUmcLAn5uZl5pclJhWYpVYVJRfzszAmpxfmlfCwMDAxQAAm+Z8zjgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+extra: AQAAAAEAAAAA

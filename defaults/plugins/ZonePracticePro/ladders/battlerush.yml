@@ -1,0 +1,57 @@
+name: BattleRush
+enabled: false
+type: BATTLE_RUSH
+settings:
+  regen: true
+  hunger: false
+  weightClass: UNRANKED_AND_RANKED
+  editable: true
+  drop-inventory: false
+  multiRoundStartCountdown: true
+  hitdelay: 1.0
+  rounds: 3
+  hearts: 10
+  maxduration: 900
+  epcooldown: 1.0
+  gacooldown: 0.0
+  fireworkcooldown: 1.0
+  windchargecooldown: 0.0
+  startcountdown: 3
+  startmove: false
+  matchtypes:
+  - DUEL
+  - PARTY_SPLIT
+  - PARTY_VS_PARTY
+  knockback: DEFAULT
+  tntfusetime: 4
+  healthbelowname: false
+  resetbuildafterround: false
+  breakallblocks: false
+  roundenddelay: 3
+  roundstatustitles: true
+  countdowntitles: true
+  respawntime: 3
+  temp-build-return-delay: 6
+  reset-players-on-void-death: false
+  tntautoignite: false
+  pullplayerswithrod: true
+  itempickup: true
+  border:
+    enabled: false
+    start-delay: 120
+    shrink-duration: 120
+    final-size: 10
+    damage: 1.0
+    damage-interval: 1
+respawn-time: 3
+icon:
+  ==: org.bukkit.inventory.ItemStack
+  DataVersion: 5023
+  id: minecraft:lily_pad
+  count: 1
+  components:
+    minecraft:custom_name: '{color:"gold",text:"Battle Rush"}'
+  schema_version: 1
+inventory: AQAAACQAAAB+H4sIAAAAAAAA/0WLQQoCMQxFvw6C1I0w6GFcewa3Q4yRKaXJkMbzeFVHFLp4q/deAgYcrhR0E2/ZFBjfe2zzA8eaVdjpGZc2C3kbsGN7aQDYJCS2upiKxipOvXVZKPvE1v7huTtRnkmj/qaxi6LG5U5cvsvKB28GfF2XAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+armor: AQAAAAQAAABUH4sIAAAAAAAA/+NiYGBm4HZJLEkMSy0qzszPY2AQns/BwJSZwiCem5mXmlyUmFZilZOaWJKRWhSflJ9fUszMwJqcX5pXwsDAwMgAAA6xMxRAAAAAAAAAVx+LCAAAAAAAAP/jYmBgZuB2SSxJDEstKs7Mz2NgEJ7PwcCUmcIglZuZl5pclJhWYpWTmliSkVoUn5Oanp6Zl17MzMCanF+aV8LAwMDIAACnglDfQwAAAAAAAFkfiwgAAAAAAAD/42JgYGbgdkksSQxLLSrOzM9jYBCez8HAlJnCIJObmZeaXJSYVmKVk5pYkpFaFJ+ckVpcUpCTWJLKzMCanF+aV8LAwMDIAAAz4hwZRQAAAAAAAAA=
+extra: AQAAAAEAAABPH4sIAAAAAAAA/+NiYGBm4HZJLEkMSy0qzszPY2AQns/BwJSZwiCUm5mXmlyUmFZiVZSaEl+en5/DzMCanF+aV8LAwODAAACq3+8jOwAAAA==

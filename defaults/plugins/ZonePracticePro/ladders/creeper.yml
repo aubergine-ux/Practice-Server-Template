@@ -1,0 +1,70 @@
+name: Creeper
+enabled: false
+type: CREEPER
+settings:
+  regen: true
+  hunger: true
+  weightClass: UNRANKED_AND_RANKED
+  editable: true
+  drop-inventory: false
+  multiRoundStartCountdown: true
+  hitdelay: 1.0
+  rounds: 1
+  hearts: 10
+  maxduration: 600
+  epcooldown: 13.0
+  gacooldown: 0.0
+  fireworkcooldown: 1.0
+  windchargecooldown: 0.0
+  startcountdown: 3
+  startmove: true
+  matchtypes:
+  - DUEL
+  - PARTY_FFA
+  - PARTY_SPLIT
+  - PARTY_VS_PARTY
+  knockback: DEFAULT
+  tntfusetime: 1
+  healthbelowname: false
+  resetbuildafterround: false
+  breakallblocks: true
+  roundenddelay: 3
+  roundstatustitles: true
+  countdowntitles: true
+  tntautoignite: true
+  pullplayerswithrod: false
+  creeper-explosion-delay: 2.0
+  itempickup: true
+  border:
+    enabled: false
+    start-delay: 120
+    shrink-duration: 120
+    final-size: 10
+    damage: 1.0
+    damage-interval: 1
+icon:
+  ==: org.bukkit.inventory.ItemStack
+  DataVersion: 5023
+  id: minecraft:creeper_spawn_egg
+  count: 1
+  components:
+    minecraft:custom_name: '{color:"gold",text:"Creeper"}'
+  schema_version: 1
+inventory: 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
+armor: AQAAAAQAAACWH4sIAAAAAAAA/02OSw7CMAxEBwISCks+Eldh3TOwrUxwqaXGjlJzHq5KC4uyfvNmJgIB+4acblxHMQUO7x3W8sAli3Kq1Pk19SSaSYb2buZjwDbZSx3AKiImy8WUdQanRapcSGqbbJyDIeK8MNapUj3/pL+ljsl7rm1HwyD6nMRNwHHhpZpz8u/R6TnwAcNc1yvBAAAAAAAAhh+LCAAAAAAAAP9FjksKAjEQBZ8OgsSln5Unce0Z3A5N28aGSSck7Xm8qkGFrOvVowIwYXclp5vUptmA/XuLtd5xTmrClR5+4SepJdJlXiRGtdgmbDi/zAGsAgLnVLKJeQfH4VUppHXm3P7D02Bi/dU8/aTDAKVmF/ZvS48DPuf1smOkAAAAAAAAiB+LCAAAAAAAAP9FjksKAkEMBZ82grRLP0sP4tozzHYIMTKB6aTpjufxqg4qzLpePSoDCYc7BQ3SuroBx/ceW33gWtSEGz3jxhOpFdJ55El61JlCEnbsLwsAm4zMXqqbWPSE82o2qaRtZO//4WVlYsuvRflJpxXU5iEc35olD/gAJLWP1KYAAAAAAACGH4sIAAAAAAAA/0WOSwoCQQwFnzaCtEs/C4/i2jPMdggxMoHppOmO5/GqDirMul49KgMJhzsFDdK6ugHH9x5bfeBa1IQbPePGE6kV0nmcZC4SCTv2lwWATUZmL9VNLHrCebWaVNI2svf/8LIyseXTovyk0wpq8xCOb8mSBnwAYZQJt6IAAAA=
+extra: AQAAAAEAAAAA
+effects:
+- ==: PotionEffect
+  effect: minecraft:absorption
+  duration: 2400
+  amplifier: 0
+  ambient: false
+  has-particles: true
+  has-icon: true
+- ==: PotionEffect
+  effect: minecraft:speed
+  duration: 100
+  amplifier: 1
+  ambient: false
+  has-particles: true
+  has-icon: true

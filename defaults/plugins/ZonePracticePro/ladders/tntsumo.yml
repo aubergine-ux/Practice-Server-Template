@@ -1,0 +1,56 @@
+name: tntsumo
+enabled: false
+type: TNT_SUMO
+settings:
+  regen: false
+  hunger: false
+  weightClass: UNRANKED_AND_RANKED
+  editable: true
+  drop-inventory: false
+  multiRoundStartCountdown: true
+  hitdelay: 1.0
+  rounds: 1
+  hearts: 10
+  maxduration: 600
+  epcooldown: 1.0
+  gacooldown: 0.0
+  fireworkcooldown: 1.0
+  windchargecooldown: 0.0
+  startcountdown: 3
+  startmove: false
+  matchtypes:
+  - DUEL
+  - PARTY_FFA
+  - PARTY_SPLIT
+  - PARTY_VS_PARTY
+  knockback: DEFAULT
+  tntfusetime: 4
+  healthbelowname: false
+  resetbuildafterround: false
+  breakallblocks: false
+  roundenddelay: 3
+  roundstatustitles: true
+  countdowntitles: true
+  block-return-delay: 10
+  temp-build-return-delay: 10
+  tntautoignite: false
+  pullplayerswithrod: true
+  itempickup: true
+  border:
+    enabled: false
+    start-delay: 120
+    shrink-duration: 120
+    final-size: 10
+    damage: 1.0
+    damage-interval: 1
+icon:
+  ==: org.bukkit.inventory.ItemStack
+  DataVersion: 5023
+  id: minecraft:tnt
+  count: 1
+  components:
+    minecraft:custom_name: '{color:"gold",text:"TNT Sumo"}'
+  schema_version: 1
+inventory: AQAAACQAAACOH4sIAAAAAAAA/0XKsQrCMBAG4B+LUCKdxD2LoIOrBUd1cXGQ4iohRj1s7qS5Po9j3iNP5ug3fwaoMDs6ddcwJBIG5t8aE7qjicTBD+6hO2WtMPUysgIwBsZL/AgH1lRj8Y9+TCrxxi4GLEveltyfOKnb7EWi7c6dLbldXej5Unvoyb/XwA/V/QsWgwAAAAAAAFUfiwgAAAAAAAD/42JgYGbgdkksSQxLLSrOzM9jYBCez8HAlJnCIJGbmZeaXJSYVmJVlJoSX5JaVJSYnF9SksjMwJqcX5pXwsDA4MAAAD4FQUdBAAAAAAAAfR+LCAAAAAAAAP9NzEEKwkAMheFnB0HGpSKexbVncCshzWCQSUqbUj2NV3W60sVbfbw/Awn7KwXdZJzUDTh8dui0x7mqCY9U4rK492L3QflJL0nYss8WADYZmb0ObmIxZZx+HzF+kEVdIeH4B6Uoa+N3C3RtX08wd7iEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSH4sIAAAAAAAA/+NiYGBm4HZJLEkMSy0qzszPY2AQns/BwJSZwiCam5mXmlyUmFZilZqXkloUX5CaWJTDzMCanF+aV8LAwMDIAAAst08xPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+armor: AQAAAAQAAAAAAAAAAAAAAAAAAAAA
+extra: AQAAAAMAAAAAAAAAAAAAAAA=

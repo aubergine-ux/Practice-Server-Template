@@ -1,0 +1,56 @@
+name: Bedwars
+enabled: false
+type: BEDWARS
+settings:
+  regen: true
+  hunger: false
+  weightClass: UNRANKED_AND_RANKED
+  editable: true
+  drop-inventory: false
+  multiRoundStartCountdown: true
+  hitdelay: 1.0
+  rounds: 1
+  hearts: 10
+  maxduration: 900
+  epcooldown: 1.0
+  gacooldown: 0.0
+  fireworkcooldown: 1.0
+  windchargecooldown: 0.0
+  startcountdown: 3
+  startmove: false
+  matchtypes:
+  - DUEL
+  - PARTY_SPLIT
+  - PARTY_VS_PARTY
+  knockback: DEFAULT
+  tntfusetime: 4
+  tntautoignite: true
+  healthbelowname: false
+  resetbuildafterround: false
+  breakallblocks: false
+  roundenddelay: 3
+  roundstatustitles: true
+  countdowntitles: true
+  respawntime: 3
+  pullplayerswithrod: true
+  itempickup: true
+  border:
+    enabled: false
+    start-delay: 120
+    shrink-duration: 120
+    final-size: 10
+    damage: 1.0
+    damage-interval: 1
+effects: []
+bedwars-respawn: 4
+icon:
+  ==: org.bukkit.inventory.ItemStack
+  DataVersion: 5023
+  id: minecraft:orange_bed
+  count: 1
+  components:
+    minecraft:custom_name: '{color:"gold",text:"Bedwars"}'
+  schema_version: 1
+armor: AQAAAAQAAABRH4sIAAAAAAAA/+NiYGBm4HZJLEkMSy0qzszPY2AQns/BwJSZwiCSm5mXmlyUmFZilVmUnxeflJ9fUszMwJqcX5pXwsDAwMgAAHGH8ik9AAAAAAAAVB+LCAAAAAAAAP/jYmBgZuB2SSxJDEstKs7Mz2NgEJ7PwcCUmcIgnpuZl5pclJhWYpVZlJ8Xn5Oanp6Zl17MzMCanF+aV8LAwMDIAACjoVW6QAAAAAAAAFkfiwgAAAAAAAD/42JgYGbgdkksSQxLLSrOzM9jYBCez8HAlJnCIJObmZeaXJSYVmKVk5pYkpFaFJ+ckVpcUpCTWJLKzMCanF+aV8LAwMDIAAAz4hwZRQAAAAAAAFUfiwgAAAAAAAD/42JgYGbgdkksSQxLLSrOzM9jYBCez8HAlJnCIJGbmZeaXJSYVmKVk5pYkpFaFJ+RmpObWsLMwJqcX5pXwsDAwMgAAB6ENK5BAAAA
+inventory: AQAAACQAAABTH4sIAAAAAAAA/+NiYGBm4HZJLEkMSy0qzszPY2AQns/BwJSZwiCWm5mXmlyUmFZiVZ6fn5KaF19cnl+UwszAmpxfmlfCwMDAyAAAivx3nz8AAAAAAABNH4sIAAAAAAAA/+NiYGBm4HZJLEkMSy0qzszPY2AQns/BwJSZwiCQm5mXmlyUmFZiVZyRmlhUzMzAmpxfmlfCwMDAyAAA2pJKBTkAAAAAAAB4H4sIAAAAAAAA/02MMQ7CQAwEF05I0VGCeAx13pAWWT6fcHF2lDgKvIavklRQTDWjyUDCuaegQaZZ3YDLp8NRC65NTXiiGvfVvYg96CUJJ/bFAsAhI7O30U0s5ozbrxfjJ1m0XaT/kdSqrJt+74ONL/0Jc5aAAAAAAAAAfR+LCAAAAAAAAP9NzEEKwkAMheFXh4KMS0U8i2vP4LaENINBJiltivY0XtV2pYu3+nh/BhIONwq6yzipG3D87LHTHpeqJjxSievLvRfrBuUnvSWhZZ8tADQZmb0ObmIxZZx/HzF+kEXdIOH0B6Uo68rLFlj3BaGfwqqEAAAAAAAAAAAAAAAAAAAAAAAAUx+LCAAAAAAAAP/jYmBgZuB2SSxJDEstKs7Mz2NgEJ7PwcCUmcIglpuZl5pclJhWYpWen5OSmhefWFCQk8rMwJqcX5pXwsDAwMgAAOGWs+Y/AAAAAAAATR+LCAAAAAAAAP/jYmBgZuB2SSxJDEstKs7Mz2NgEJ7PwcCUmcIgkJuZl5pclJhWYpWTmJKSWsTMwJqcX5pXwsDAIMAAAJVj3kE5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+extra: AQAAAAEAAABRH4sIAAAAAAAA/+NiYGBm4HZJLEkMSy0qzszPY2AQns/BwJSZwiCSm5mXmlyUmFZiVZ6RWZIaX56fn8PMwJqcX5pXwsDA4MAAAFj/98A9AAAA

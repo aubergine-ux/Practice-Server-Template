@@ -1,0 +1,58 @@
+name: Fireball
+enabled: false
+type: FIREBALL_FIGHT
+settings:
+  regen: true
+  hunger: false
+  weightClass: UNRANKED_AND_RANKED
+  editable: true
+  drop-inventory: false
+  multiRoundStartCountdown: true
+  hitdelay: 1.0
+  rounds: 1
+  hearts: 10
+  maxduration: 900
+  epcooldown: 1.0
+  gacooldown: 0.0
+  fireworkcooldown: 1.0
+  windchargecooldown: 0.0
+  startcountdown: 3
+  startmove: false
+  matchtypes:
+  - DUEL
+  - PARTY_SPLIT
+  - PARTY_VS_PARTY
+  knockback: DEFAULT
+  tntfusetime: 4
+  tntautoignite: true
+  healthbelowname: false
+  resetbuildafterround: false
+  breakallblocks: false
+  roundenddelay: 3
+  roundstatustitles: true
+  countdowntitles: true
+  respawntime: 3
+  pullplayerswithrod: true
+  itempickup: true
+  border:
+    enabled: false
+    start-delay: 120
+    shrink-duration: 120
+    final-size: 10
+    damage: 1.0
+    damage-interval: 1
+effects: []
+bed-respawn: 3
+fireball-cooldown: 1.0
+icon:
+  ==: org.bukkit.inventory.ItemStack
+  DataVersion: 5023
+  id: minecraft:fire_charge
+  count: 1
+  components:
+    minecraft:custom_name: '{color:"gold",text:"Fireball Fight"}'
+  schema_version: 1
+armor: AQAAAAQAAABuH4sIAAAAAAAA/0XLQQ5AMBAF0I9IpJYk7mLtCmyl2hFNmJEaC6dxVGJl/fIMkKHsrNqB4hGEgeoukAaPZgtMLtpZ25WsLhTHSUSPDLmTkxVAYmCcbLsw8Qf1X/xFfnSySsTT98ALU04C6GkAAAAAAAB0H4sIAAAAAAAA/0XLMQ7CMAwF0A9VJZSOdOpROvcKYa2ixA2REhu57sBpelRgY356DugwLMHCg3QvwsD9vOFaEqZWmKKGzeZKwZ6ka6WcC+e9Qx/lYANwcXBR2kuY2H4w/ld6U1qjVFF8vAe+oAFMWGwAAAAAAAB0H4sIAAAAAAAA/0XLMQ6DMAwF0N9GlaowwshJOvcKdEWWY0SkYKPEDD1Nj1pG3v4iENC9yekjtWVToP89cc8J45ZVuNLiryLkq9SZV2m+F3IJeLAd6gBuEZFt201FvQUM10tfSTNbsYr/NAEnWjPGQm4AAAAAAAByH4sIAAAAAAAA/0XLQQ6DIBAF0F+JiaFLu/AsXfcKuCUExkACMwanC0/To9alb/8sYPD8BA0r9aMIA/NvwlASllaYYg+bvisFzdR9ptpIDcYoX1YADwsbpe3CxHoYvO6TTko+SpWOv3PABcQNx+ZqAAAA
+inventory: AQAAACQAAABSH4sIAAAAAAAA/+NiYGBm4HZJLEkMSy0qzszPY2AQns/BwJSZwiCam5mXmlyUmFZiVVySn5caX1yeX5TCzMCanF+aV8LAwMDIAADkvSH3PgAAAAAAAFIfiwgAAAAAAAD/42JgYGbgdkksSQxLLSrOzM9jYBCez8HAlJnCIJqbmZeaXJSYVmKVllmUGp+ckViUnsrMwJqcX5pXwsDAwMYAAECKq64+AAAAAAAAUB+LCAAAAAAAAP/jYmBgZuB2SSxJDEstKs7Mz2NgEJ7PwcCUmcIgnJuZl5pclJhWYpWalxJfXJKfl8rMwJqcX5pXwsDAwMEAAIrDrUE8AAAAAAAATR+LCAAAAAAAAP/jYmBgZuB2SSxJDEstKs7Mz2NgEJ7PwcCUmcIgkJuZl5pclJhWYlWckZpYVMzMwJqcX5pXwsDAwMgAANqSSgU5AAAAAAAASh+LCAAAAAAAAP/jYmBgZuB2SSxJDEstKs7Mz2NgEJ7PwcCUmcLAm5uZl5pclJhWYlWSV8LMwJqcX5pXwsDAwMQAAG7Q4ZA2AAAAAAAAeB+LCAAAAAAAAP9NjDEOwkAMBBdOSNFRgngMdd6QFlk+n3BxdpQ4CryGr5JUUEw1o8lAwrmnoEGmWd2Ay6fDUQuuTU14ohr31b2IPeglCSf2xQLAISOzt9FNLOaM268X4ydZtF2k/5HUqqybfu+DjS/9CXOWgAAAAAAAAH0fiwgAAAAAAAD/TcxBCsJADIXhV4eCjEtFPItrz+C2hDSDQSYpbYr2NF7VdqWLt/p4fwYSDjcKuss4qRtw/Oyx0x6XqiY8Uonry70X6wblJ70loWWfLQA0GZm9Dm5iMWWcfx8xfpBF3SDh9AelKOvKyxZY9wWhn8KqhAAAAAAAAE0fiwgAAAAAAAD/42JgYGbgdkksSQxLLSrOzM9jYBCez8HAlJnCIJCbmZeaXJSYVmKVk5iSklrEzMCanF+aV8LAwMDBAADM+8XDOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+extra: AQAAAAEAAABQH4sIAAAAAAAA/+NiYGBm4HZJLEkMSy0qzszPY2AQns/BwJSZwiCcm5mXmlyUmFZilZRTmhpfnp+fw8zAmpxfmlfCwMDgwAAApUHqMDwAAAA=
+fireball-block-destroy: true

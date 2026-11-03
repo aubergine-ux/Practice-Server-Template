@@ -1,0 +1,54 @@
+name: Bridges
+enabled: false
+type: BRIDGES
+settings:
+  regen: true
+  hunger: true
+  weightClass: UNRANKED_AND_RANKED
+  editable: true
+  drop-inventory: false
+  multiRoundStartCountdown: false
+  hitdelay: 1.0
+  rounds: 5
+  hearts: 10
+  maxduration: 1800
+  epcooldown: 1.0
+  gacooldown: 0.0
+  fireworkcooldown: 1.0
+  windchargecooldown: 0.0
+  startcountdown: 3
+  startmove: false
+  matchtypes:
+  - DUEL
+  - PARTY_SPLIT
+  - PARTY_VS_PARTY
+  knockback: DEFAULT
+  tntfusetime: 4
+  healthbelowname: false
+  resetbuildafterround: true
+  breakallblocks: false
+  roundenddelay: 3
+  roundstatustitles: true
+  countdowntitles: true
+  respawntime: 3
+  tntautoignite: false
+  pullplayerswithrod: true
+  itempickup: true
+  border:
+    enabled: false
+    start-delay: 120
+    shrink-duration: 120
+    final-size: 10
+    damage: 1.0
+    damage-interval: 1
+icon:
+  ==: org.bukkit.inventory.ItemStack
+  DataVersion: 5023
+  id: minecraft:white_terracotta
+  count: 1
+  components:
+    minecraft:custom_name: '{color:"gold",text:"Bridges"}'
+  schema_version: 1
+inventory: AQAAACQAAABRH4sIAAAAAAAA/+NiYGBm4HZJLEkMSy0qzszPY2AQns/BwJSZwiCSm5mXmlyUmFZilVmUnxdfXJ5flMLMwJqcX5pXwsDAwMgAADX5xzg9AAAAAAAASh+LCAAAAAAAAP/jYmBgZuB2SSxJDEstKs7Mz2NgEJ7PwcCUmcLAm5uZl5pclJhWYpWUX87MwJqcX5pXwsDAwMgAAOQq4Ms2AAAAAAAAfh+LCAAAAAAAAP9NzDEKAkEMheHnDoKMpSJ4FWvPYCshk8Egkyy7WdDTeFVnKy1e9fH+DCTsrxR0k2lWN+Dw2WHQgnNTE56oxqUoNbdyH5Wf9JKELftiAWCTkdnb6CYWc8bpdxLjB1m0FRKOf1CrsnZ+98DQ9wVSnOZlhQAAAAAAAFYfiwgAAAAAAAD/42JgYGbgdkksSQxLLSrOzM9jYBCez8HAlJnCIJmbmZeaXJSYVmKVlFOaGl+SWlSUmJxfUpLIzMCanF+aV8LAwODAAABLhFcCQgAAAAAAAFYfiwgAAAAAAAD/42JgYGbgdkksSQxLLSrOzM9jYBCez8HAlJnCIJmbmZeaXJSYVmKVlFOaGl+SWlSUmJxfUpLIzMCanF+aV8LAwODAAABLhFcCQgAAAAAAAFMfiwgAAAAAAAD/42JgYGbgdkksSQxLLSrOzM9jYBCez8HAlJnCIJabmZeaXJSYVmKVnp+TkpoXn1hQkJPKzMCanF+aV8LAwMDBAACoLXE3PwAAAAAAAAAAAAAAAAAATB+LCAAAAAAAAP/jYmBgZuB2SSxJDEstKs7Mz2NgEJ7PwcCUmcLAn5uZl5pclJhWYpVYVJRfzszAmpxfmlfCwMDAyAAAUD+ILTgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+armor: AQAAAAQAAABUH4sIAAAAAAAA/+NiYGBm4HZJLEkMSy0qzszPY2AQns/BwJSZwiCem5mXmlyUmFZilZOaWJKRWhSflJ9fUszMwJqcX5pXwsDAwMgAAA6xMxRAAAAAAAAAVx+LCAAAAAAAAP/jYmBgZuB2SSxJDEstKs7Mz2NgEJ7PwcCUmcIglZuZl5pclJhWYpWTmliSkVoUn5Oanp6Zl17MzMCanF+aV8LAwMDIAACnglDfQwAAAAAAAFkfiwgAAAAAAAD/42JgYGbgdkksSQxLLSrOzM9jYBCez8HAlJnCIJObmZeaXJSYVmKVk5pYkpFaFJ+ckVpcUpCTWJLKzMCanF+aV8LAwMDIAAAz4hwZRQAAAAAAAAA=
+extra: AQAAAAEAAAAA
