@@ -4,5 +4,5 @@ fill -4 63 -4 4 63 4 minecraft:smooth_stone keep
 setblock 0 63 0 minecraft:sea_lantern
 setworldspawn 0 64 0
 forceload remove -8 -8 8 8
-scoreboard players set #done duels.setup 1
-say [duels-template] First-boot setup done
+scoreboard players set #done practice.setup 1
+say [practice] First-boot setup done
