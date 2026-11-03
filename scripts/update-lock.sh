@@ -9,7 +9,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 MANIFEST="$ROOT/manifest.txt"
 LOCK="$ROOT/versions.lock"
 ENV_FILE="$ROOT/docker/versions.env"
-UA="minecraft-duels-template/update-lock (github.com)"
+UA="practice-server-template/update-lock (github.com/aubergine-ux/practice-server-template)"
 
 for bin in curl jq; do
   command -v "$bin" >/dev/null || { echo "error: '$bin' is required" >&2; exit 1; }
@@ -19,7 +19,7 @@ api() { curl -fsSL -A "$UA" "$@"; }
 
 mc_version=""
 lock_lines=()
-modrinth_pins=()
+plugin_urls=()
 
 while read -r kind name version _; do
   case "$kind" in
@@ -57,8 +57,28 @@ while read -r kind name version _; do
       sha=$(jq -r .hashes.sha512 <<<"$file")
       vnum=$(jq -r .version_number <<<"$pick")
       lock_lines+=("plugins/$filename	sha512:$sha	$url")
-      modrinth_pins+=("$name:$(jq -r .id <<<"$pick")")
+      plugin_urls+=("$url")
       echo "$name $vnum"
+      ;;
+    hangar)
+      [[ -n "$mc_version" ]] || { echo "error: 'paper' line must come before plugins" >&2; exit 1; }
+      if [[ -n "$version" ]]; then
+        pick=$(api "https://hangar.papermc.io/api/v1/projects/$name/versions/$version")
+      else
+        pick=$(api -G "https://hangar.papermc.io/api/v1/projects/$name/versions" \
+          --data-urlencode 'platform=PAPER' --data-urlencode "platformVersion=$mc_version" \
+          --data-urlencode 'channel=Release' --data-urlencode 'limit=1' | jq '.result[0]')
+      fi
+      url=$(jq -r '.downloads.PAPER.downloadUrl // empty' <<<"$pick")
+      if [[ -z "$url" ]]; then
+        echo "error: no ${version:-release} download of '$name' on Hangar for Paper $mc_version" >&2
+        exit 1
+      fi
+      filename=$(jq -r .downloads.PAPER.fileInfo.name <<<"$pick")
+      sha=$(jq -r .downloads.PAPER.fileInfo.sha256Hash <<<"$pick")
+      lock_lines+=("plugins/$filename	sha256:$sha	$url")
+      plugin_urls+=("$url")
+      echo "$name $(jq -r .name <<<"$pick")"
       ;;
     *)
       echo "error: unknown manifest entry '$kind'" >&2
@@ -78,7 +98,7 @@ done <"$MANIFEST"
   echo "TYPE=PAPER"
   echo "VERSION=$mc_version"
   echo "PAPER_BUILD=$paper_build"
-  echo "MODRINTH_PROJECTS=$(IFS=,; echo "${modrinth_pins[*]}")"
+  echo "PLUGINS=$(IFS=,; echo "${plugin_urls[*]}")"
 } >"$ENV_FILE"
 
 echo "wrote versions.lock and docker/versions.env"
